@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public class Wall : LevelElements
+public class Wall : LevelElement
 {
     public override char Character { get { return '#'; } }
     public override ConsoleColor MyColor { get { return ConsoleColor.Gray; } }

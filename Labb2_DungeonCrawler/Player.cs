@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public class Player : LevelElements
+public class Player : LevelElement
 {
     public override char Character { get { return '@'; } }
 
     public override ConsoleColor MyColor { get { return ConsoleColor.White; } }
+    public override Dice AttackDice { get; set; }
+    public override Dice DefenceDice { get; set; }
     public Player()
     {
-        
+        this.AttackDice = new Dice(6, 2, 2);
+        this.DefenceDice = new Dice(6, 2, 0);
+        this.HP = 100;
     }
+    //TODO du MÅSTE göra det här snyggare och få det att funka!!!!!!!!
     public void Update()
     {
         ConsoleKeyInfo userMove = Console.ReadKey(true);
+        this.Erase();
         switch (userMove.Key)
         {
             case ConsoleKey.UpArrow:
@@ -25,6 +31,12 @@ public class Player : LevelElements
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    var collide = this.UnitCollide();
+                    if(collide is Enemy enemy)
+                    {
+                        int attack = this.Attack(collide);
+                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {enemy.HP} hp");
+                    }
                     this.yCordinate++;
                     break;
                 }
@@ -33,6 +45,12 @@ public class Player : LevelElements
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    var collideUnit = this.UnitCollide();
+                    if (collideUnit is Enemy)
+                    {
+                        int attack = this.Attack(collideUnit);
+                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {collideUnit.HP} hp");
+                    }
                     this.xCordinate++;
                     break;
                 }
@@ -41,6 +59,12 @@ public class Player : LevelElements
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    var collideUnit = this.UnitCollide();
+                    if (collideUnit is Enemy)
+                    {
+                        int attack = this.Attack(collideUnit);
+                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {collideUnit.HP} hp");
+                    }
                     this.xCordinate--;
                     break;
                 }
@@ -49,6 +73,12 @@ public class Player : LevelElements
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    var collideUnit = this.UnitCollide();
+                    if (collideUnit is Enemy)
+                    {
+                        int attack = this.Attack(collideUnit);
+                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {collideUnit.HP} hp");
+                    }
                     this.yCordinate--;
                     break;
                 }

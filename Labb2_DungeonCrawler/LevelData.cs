@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public abstract class LevelData : LevelElements
+public abstract class LevelData : LevelElement
 {
-	private static List<LevelElements> _elements;
+	private static List<LevelElement> _elements;
 
-	public static List<LevelElements> Elements
+	public static List<LevelElement> Elements
 	{
 		get { return _elements; }
 	}
 	public static void Load(string fileName)
 	{
         int row = 0;
-        _elements = new List<LevelElements>();
+        _elements = new List<LevelElement>();
         foreach (var line in File.ReadAllLines(fileName))
         {
             for (global::System.Int32 i = 0; i < line.Length; i++)

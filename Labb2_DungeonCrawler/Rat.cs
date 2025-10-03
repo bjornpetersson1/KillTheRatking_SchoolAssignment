@@ -13,15 +13,21 @@ public class Rat : Enemy
     public override char Character { get { return 'r'; } }
 
     public override ConsoleColor MyColor { get { return ConsoleColor.Red; } }
+
+    public override Dice AttackDice { get; set; }
+    public override Dice DefenceDice { get; set; }
+
     private Random random;
     public Rat()
     {
-        random = new Random();
+        this.random = new Random();
+        this.AttackDice = new Dice(6, 1, 3);
+        this.DefenceDice = new Dice(6, 1, 1);
+        this.HP = 10;
     }
 
-    public override void Update()
+    public override void Update(Player player)
     {
-        //TODO fixa råttans updatemetod
         int move = random.Next(4);
         switch(move)
         {

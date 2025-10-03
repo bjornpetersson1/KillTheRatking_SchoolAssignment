@@ -6,28 +6,44 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public abstract class GameLoop:LevelElements
+public abstract class GameLoop:LevelElement
 {
     public static void GameStart()
     {
+        Console.CursorVisible = false;
         ConsoleKeyInfo userMove; //TODO hitta en snyggare lösning på esc
         var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
-        var rats = LevelData.Elements.OfType<Rat>().ToList();
-        do
+        var enemys = LevelData.Elements.OfType<Enemy>().ToList();
+        foreach (var element in LevelData.Elements)
         {
-            Console.Clear();           
-            foreach (var element in LevelData.Elements)
+            if (element is Player)
             {
                 element.Draw();
             }
-            player.Update();
-            foreach (var rat in rats)
+            else if (element.GetDistanceTo(player) < 5)
             {
-                rat.Update();
+                element.Draw();
             }
-
-
-
+        }
+        do
+        {
+            player.Update();
+            foreach (var enemy in enemys)
+            {
+                enemy.Erase();
+                enemy.Update(player);
+            }
+            foreach (var element in LevelData.Elements)
+            {
+                if (element is Player)
+                {
+                    element.Draw();
+                }
+                else if (element.GetDistanceTo(player) < 5)
+                {
+                    element.Draw();
+                }
+            }
         }
         while (true);
     }

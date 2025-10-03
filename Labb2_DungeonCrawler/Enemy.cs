@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public abstract class Enemy : LevelElements
+public abstract class Enemy : LevelElement
 {
     public abstract string Name { get; }
-    public int HP { get; set; }
-    //TODO: lägg till tärningar
-    public abstract void Update();
+    public abstract void Update(Player player);
 }

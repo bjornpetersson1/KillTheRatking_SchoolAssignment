@@ -10,7 +10,7 @@ public struct CoOrdinate
 {
     public int XCord { get; set; }
     public int YCord { get; set; }
-    public CoOrdinate(LevelElements element)
+    public CoOrdinate(LevelElement element)
     {
         XCord = element.xCordinate;
         YCord = element.yCordinate;
