@@ -15,7 +15,9 @@ public abstract class LevelElements
     }
     public bool IsSpaceAvailable()
     {
-        return LevelData.Elements.
+        CoOrdinate targetSpace = new CoOrdinate(this);
+
+        return !LevelData.Elements.Any(k => k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
     }
 
 }
