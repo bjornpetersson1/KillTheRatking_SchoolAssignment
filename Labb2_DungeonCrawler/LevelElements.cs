@@ -17,7 +17,7 @@ public abstract class LevelElements
     {
         CoOrdinate targetSpace = new CoOrdinate(this);
 
-        return !LevelData.Elements.Any(k => k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
+        return !LevelData.Elements.Any(k => k != this && k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
     }
 
 }

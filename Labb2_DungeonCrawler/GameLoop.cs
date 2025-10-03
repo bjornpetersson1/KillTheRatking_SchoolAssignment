@@ -11,18 +11,24 @@ public abstract class GameLoop:LevelElements
     public static void GameStart()
     {
         ConsoleKeyInfo userMove; //TODO hitta en snyggare lösning på esc
-        var player = FindFirst //TODO fortstätt här, du ska hitta referernsen till player helt enkelt, sen köra in den i player.Update()
+        var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
+        var rats = LevelData.Elements.OfType<Rat>().ToList();
         do
         {
+            Console.Clear();           
             foreach (var element in LevelData.Elements)
             {
                 element.Draw();
             }
-            userMove = Console.ReadKey(true);
+            player.Update();
+            foreach (var rat in rats)
+            {
+                rat.Update();
+            }
 
-            
-            Console.Clear();           
+
+
         }
-        while (userMove.Key != ConsoleKey.Escape);
+        while (true);
     }
 }

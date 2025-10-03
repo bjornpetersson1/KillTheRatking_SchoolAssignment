@@ -13,9 +13,54 @@ public class Rat : Enemy
     public override char Character { get { return 'r'; } }
 
     public override ConsoleColor MyColor { get { return ConsoleColor.Red; } }
+    private Random random;
+    public Rat()
+    {
+        random = new Random();
+    }
 
     public override void Update()
     {
         //TODO fixa råttans updatemetod
+        int move = random.Next(4);
+        switch(move)
+        {
+            case 0:
+                this.xCordinate--;
+                if (this.IsSpaceAvailable()) break;
+                else
+                {
+                    this.xCordinate++;
+                    break;
+                }
+                break;
+            case 1:
+                this.xCordinate++;
+                if (this.IsSpaceAvailable()) break;
+                else
+                {
+                    this.xCordinate--;
+                    break;
+                }
+                break;
+            case 2:
+                this.yCordinate--;
+                if (this.IsSpaceAvailable()) break;
+                else
+                {
+                    this.yCordinate++;
+                    break;
+                }
+                break;
+            case 3:
+                this.yCordinate++;
+                if (this.IsSpaceAvailable()) break;
+                else
+                {
+                    this.yCordinate--;
+                    break;
+                }
+                break;
+        }    
     }
 }

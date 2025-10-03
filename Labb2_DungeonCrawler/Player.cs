@@ -11,11 +11,14 @@ public class Player : LevelElements
     public override char Character { get { return '@'; } }
 
     public override ConsoleColor MyColor { get { return ConsoleColor.White; } }
-    //TODO fixa players update-metod
+    public Player()
+    {
+        
+    }
     public void Update()
     {
         ConsoleKeyInfo userMove = Console.ReadKey(true);
-        switch (userMove.Key) //TODO fixa till det här stöket, gör en struct av koordinaterna
+        switch (userMove.Key)
         {
             case ConsoleKey.UpArrow:
                 this.yCordinate--;
