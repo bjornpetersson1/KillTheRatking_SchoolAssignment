@@ -14,45 +14,39 @@ public class Player : LevelElements
     //TODO fixa players update-metod
     public void Update()
     {
-        ConsoleKeyInfo userMove;
-        Player player;
-        userMove = Console.ReadKey(true);
+        ConsoleKeyInfo userMove = Console.ReadKey(true);
         switch (userMove.Key) //TODO fixa till det här stöket, gör en struct av koordinaterna
         {
             case ConsoleKey.UpArrow:
-                player = LevelData.Elements.OfType<Player>().First(e => e is Player);
-                player.yCordinate--;
-                if (player.IsSpaceAvailable()) break;
+                this.yCordinate--;
+                if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    player.yCordinate++;
+                    this.yCordinate++;
                     break;
                 }
             case ConsoleKey.LeftArrow:
-                player = LevelData.Elements.OfType<Player>().First(e => e is Player);
-                player.xCordinate--;
-                if (player.IsSpaceAvailable()) break;
+                this.xCordinate--;
+                if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    player.xCordinate++;
+                    this.xCordinate++;
                     break;
                 }
             case ConsoleKey.RightArrow:
-                player = LevelData.Elements.OfType<Player>().First(e => e is Player);
-                player.xCordinate++;
-                if (player.IsSpaceAvailable()) break;
+                this.xCordinate++;
+                if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    player.xCordinate--;
+                    this.xCordinate--;
                     break;
                 }
             case ConsoleKey.DownArrow:
-                player = LevelData.Elements.OfType<Player>().First(e => e is Player);
-                player.yCordinate++;
-                if (player.IsSpaceAvailable()) break;
+                this.yCordinate++;
+                if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    player.yCordinate--;
+                    this.yCordinate--;
                     break;
                 }
             default:
