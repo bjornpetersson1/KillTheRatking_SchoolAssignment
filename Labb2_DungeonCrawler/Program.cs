@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Labb2_DungeonCrawler;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        LevelData.Load("Level1.txt");
+        GameLoop.GameStart();
+
+    }
+}
