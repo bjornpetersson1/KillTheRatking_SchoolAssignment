@@ -17,10 +17,10 @@ public abstract class LevelElement
         Console.ForegroundColor = MyColor;
         Console.Write(Character);
     }
-    public LevelElement UnitCollide()
+    public LevelElement GetEnemy()
     {
         CoOrdinate targetSpace = new CoOrdinate(this);
-        return LevelData.Elements.Where(e => e is Player || e is Enemy).FirstOrDefault(e => e.xCordinate == targetSpace.XCord && e.yCordinate == targetSpace.YCord);
+        return LevelData.Elements.FirstOrDefault(k => k != this && k.xCordinate == targetSpace.XCord && k.yCordinate == targetSpace.YCord);
     }
     public bool IsSpaceAvailable()
     {
