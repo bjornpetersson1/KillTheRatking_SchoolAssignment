@@ -13,11 +13,13 @@ public class Player : LevelElement
     public override ConsoleColor MyColor { get { return ConsoleColor.White; } }
     public override Dice AttackDice { get; set; }
     public override Dice DefenceDice { get; set; }
+    public override string Name { get; }
     public Player()
     {
         this.AttackDice = new Dice(6, 2, 2);
         this.DefenceDice = new Dice(6, 2, 0);
         this.HP = 100;
+        this.Name = "player";
     }
     //TODO du MÅSTE göra det här snyggare och få det att funka!!!!!!!!
     public void Update()
@@ -32,7 +34,7 @@ public class Player : LevelElement
                 else
                 {
                     var collide = this.UnitCollide();
-                    if(collide is Enemy enemy)
+                    if (collide is Enemy enemy)
                     {
                         int attack = this.Attack(collide);
                         if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {enemy.HP} hp");

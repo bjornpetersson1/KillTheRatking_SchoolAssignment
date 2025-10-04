@@ -8,7 +8,8 @@ public abstract class LevelElement
     public virtual ConsoleColor MyColor { get; }
     public virtual Dice AttackDice { get; set; }
     public virtual Dice DefenceDice { get; set; }
-    public virtual int HP { get; set; } 
+    public virtual int HP { get; set; }
+    public virtual string Name { get; }
 
     public void Draw()
     {
@@ -36,16 +37,16 @@ public abstract class LevelElement
     {
         return Math.Sqrt(Math.Abs(Math.Pow(this.yCordinate - player.yCordinate, 2) + Math.Abs(Math.Pow(this.xCordinate - player.xCordinate, 2))));
     }
-    public int Attack(LevelElement enemy)
+    public string Attack(LevelElement enemy)
     {
         int attack = this.AttackDice.Throw();
         int defence = enemy.DefenceDice.Throw();
         if (attack > defence)
         {
             enemy.HP -= (attack - defence);
-            return attack-defence;
+            return $"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack was successfull and did {attack-defence} damage";
         }
-        else return -1;
+        else return $"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage"; ;
     }
 
 }
