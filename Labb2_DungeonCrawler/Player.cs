@@ -33,23 +33,24 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    var collide = this.GetCollider();
-                    if (collide is Enemy enemy)
+                    var collider = this.GetCollider();
+                    if (collider is Wall)
                     {
-                        int attack = this.Attack(collide);
-                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {enemy.HP} hp");
+                        this.yCordinate++;
+                        break;                      
                     }
-                    this.yCordinate++;
-                    break;
+                    else
+                    {
+                        PrintFightresult(Fight(collider), collider);
+                        collider.PrintFightresult(Fight(this), this);
+                        break;
+                    }
                 }
             case ConsoleKey.LeftArrow:
                 this.xCordinate--;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    var collideUnit = this.GetCollider();
-
-
                     this.xCordinate++;
                     break;
                 }
@@ -58,12 +59,6 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    
-                    if (collideUnit is Enemy)
-                    {
-                        int attack = this.Attack(collideUnit);
-                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {collideUnit.HP} hp");
-                    }
                     this.xCordinate--;
                     break;
                 }
@@ -72,12 +67,6 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    var collideUnit = this.UnitCollide();
-                    if (collideUnit is Enemy)
-                    {
-                        int attack = this.Attack(collideUnit);
-                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {collideUnit.HP} hp");
-                    }
                     this.yCordinate--;
                     break;
                 }

@@ -17,17 +17,6 @@ public abstract class LevelElement
         Console.ForegroundColor = MyColor;
         Console.Write(Character);
     }
-    public LevelElement GetCollider()
-    {
-        CoOrdinate targetSpace = new CoOrdinate(this);
-        return LevelData.Elements.FirstOrDefault(k => k != this && k.xCordinate == targetSpace.XCord && k.yCordinate == targetSpace.YCord);
-    }
-    public bool IsSpaceAvailable()
-    {
-        CoOrdinate targetSpace = new CoOrdinate(this);
-
-        return !LevelData.Elements.Any(k => k != this && k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
-    }
     public void Erase()
     {
         Console.SetCursorPosition(this.xCordinate, this.yCordinate);
@@ -37,24 +26,45 @@ public abstract class LevelElement
     {
         return Math.Sqrt(Math.Abs(Math.Pow(this.yCordinate - player.yCordinate, 2) + Math.Abs(Math.Pow(this.xCordinate - player.xCordinate, 2))));
     }
-    public string Attack(LevelElement enemy) //TODO dela upp den här i fight och meddelande
+    public bool IsSpaceAvailable()
+    {
+        CoOrdinate targetSpace = new CoOrdinate(this);
+
+        return !LevelData.Elements.Any(k => k != this && k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
+    }
+    public LevelElement GetCollider()
+    {
+        CoOrdinate targetSpace = new CoOrdinate(this);
+        return LevelData.Elements.FirstOrDefault(k => k != this && k.xCordinate == targetSpace.XCord && k.yCordinate == targetSpace.YCord);
+    }
+    public int Attack(LevelElement enemy)
     {
         int attack = this.AttackDice.Throw();
         int defence = enemy.DefenceDice.Throw();
-        if (attack > defence)
+        int result = attack - defence;
+        if (result > 0)
         {
-            enemy.HP -= (attack - defence);
-            return $"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack was successfull and did {attack-defence} damage";
+            enemy.HP -= (result);
+            return result;
         }
-        else return $"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage"; ;
+        else return -1;
     }
-    public void Fight() //Få kläm på det här med attack och resultat osv 
+    public int Fight(LevelElement enemy)
     {
-        var collider = this.GetCollider();
-        if (collider != this && collider is Enemy || collider is Player)
+
+        if (enemy != this && (enemy is Enemy || enemy is Player))
         {
-            this.Attack(collider);
+            return this.Attack(enemy);
         }
+        else return -1;
+    }
+    public void PrintFightresult(int fightreturn, LevelElement enemy)
+    {
+        if (fightreturn != -1)
+        {
+            Console.WriteLine($"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack was successfull and did {fightreturn} damage");
+        }
+        else Console.WriteLine($"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage");
     }
 
 }
