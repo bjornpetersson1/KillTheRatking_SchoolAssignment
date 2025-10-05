@@ -14,6 +14,7 @@ public abstract class GameLoop:LevelElement
         ConsoleKeyInfo userMove; //TODO hitta en snyggare lösning på esc
         var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
         var enemys = LevelData.Elements.OfType<Enemy>().ToList();
+        player.PrintUnitInfo();
         foreach (var element in LevelData.Elements)
         {
             if (element is Player)

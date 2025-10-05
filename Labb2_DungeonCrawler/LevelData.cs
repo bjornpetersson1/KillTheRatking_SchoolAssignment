@@ -16,7 +16,7 @@ public abstract class LevelData : LevelElement
 	}
 	public static void Load(string fileName)
 	{
-        int row = 0;
+        int row = 4;
         _elements = new List<LevelElement>();
         foreach (var line in File.ReadAllLines(fileName))
         {

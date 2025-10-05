@@ -8,7 +8,7 @@ namespace Labb2_DungeonCrawler;
 
 public class Rat : Enemy
 {
-    public override string Name { get { return "rat"; } }
+    public override string Name { get { return "rat"; } set { this.Name = value; } }
 
     public override char Character { get { return 'r'; } }
 

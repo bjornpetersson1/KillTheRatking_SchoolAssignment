@@ -20,3 +20,21 @@ namespace Labb2_DungeonCrawler;
     //en rad för playerinfo
     //en rad för attack
     //en rad för defend
+
+        //DONE
+
+//Fightgrejen borde inte va baserad i playerupdate
+    //just nu attackerrar inte fiender dom bara counterattackerar
+
+//Fixa player switch, DNR!!!!
+
+//Bugg i skriva ut fightresultat, tar inte bort text
+    //dodgy sätt att sätta cursorn
+
+//dodgy name propfull i rat o snake
+
+//fixa så man kan skriva in sitt eget namn
+
+//print player skriver ut | en sån för mycket
+
+//ta bort fienden när 0 i hp

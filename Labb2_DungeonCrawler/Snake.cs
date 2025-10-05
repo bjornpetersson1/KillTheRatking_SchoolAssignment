@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Labb2_DungeonCrawler;
 public class Snake : Enemy
 {
-    public override string Name { get { return "snake"; } }
+    public override string Name { get { return "snake"; } set { this.Name = value; } }
 
     public override char Character { get { return 's'; } }
 

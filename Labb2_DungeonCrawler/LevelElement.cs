@@ -9,8 +9,10 @@ public abstract class LevelElement
     public virtual Dice AttackDice { get; set; }
     public virtual Dice DefenceDice { get; set; }
     public virtual int HP { get; set; }
-    public virtual string Name { get; }
+    public virtual string Name { get; set; }
 
+
+    public virtual void PrintUnitInfo() { }
     public void Draw()
     {
         Console.SetCursorPosition(xCordinate, yCordinate);
@@ -42,6 +44,7 @@ public abstract class LevelElement
         int attack = this.AttackDice.Throw();
         int defence = enemy.DefenceDice.Throw();
         int result = attack - defence;
+
         if (result > 0)
         {
             enemy.HP -= (result);
@@ -62,9 +65,14 @@ public abstract class LevelElement
     {
         if (fightreturn != -1)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack was successfull and did {fightreturn} damage");
         }
-        else Console.WriteLine($"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage");
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage");
+        }
     }
 
 }
