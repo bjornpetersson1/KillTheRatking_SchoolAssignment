@@ -33,7 +33,7 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    var collide = this.UnitCollide();
+                    var collide = this.GetCollider();
                     if (collide is Enemy enemy)
                     {
                         int attack = this.Attack(collide);
@@ -47,12 +47,9 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    var collideUnit = this.UnitCollide();
-                    if (collideUnit is Enemy)
-                    {
-                        int attack = this.Attack(collideUnit);
-                        if (attack != -1) Console.WriteLine($"Attack success, enemy took {attack} hits and now has {collideUnit.HP} hp");
-                    }
+                    var collideUnit = this.GetCollider();
+
+
                     this.xCordinate++;
                     break;
                 }
@@ -61,7 +58,7 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    var collideUnit = this.UnitCollide();
+                    
                     if (collideUnit is Enemy)
                     {
                         int attack = this.Attack(collideUnit);

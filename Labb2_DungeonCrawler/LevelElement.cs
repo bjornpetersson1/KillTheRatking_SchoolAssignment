@@ -17,7 +17,7 @@ public abstract class LevelElement
         Console.ForegroundColor = MyColor;
         Console.Write(Character);
     }
-    public LevelElement GetEnemy()
+    public LevelElement GetCollider()
     {
         CoOrdinate targetSpace = new CoOrdinate(this);
         return LevelData.Elements.FirstOrDefault(k => k != this && k.xCordinate == targetSpace.XCord && k.yCordinate == targetSpace.YCord);
@@ -37,7 +37,7 @@ public abstract class LevelElement
     {
         return Math.Sqrt(Math.Abs(Math.Pow(this.yCordinate - player.yCordinate, 2) + Math.Abs(Math.Pow(this.xCordinate - player.xCordinate, 2))));
     }
-    public string Attack(LevelElement enemy)
+    public string Attack(LevelElement enemy) //TODO dela upp den här i fight och meddelande
     {
         int attack = this.AttackDice.Throw();
         int defence = enemy.DefenceDice.Throw();
@@ -47,6 +47,14 @@ public abstract class LevelElement
             return $"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack was successfull and did {attack-defence} damage";
         }
         else return $"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage"; ;
+    }
+    public void Fight() //Få kläm på det här med attack och resultat osv 
+    {
+        var collider = this.GetCollider();
+        if (collider != this && collider is Enemy || collider is Player)
+        {
+            this.Attack(collider);
+        }
     }
 
 }
