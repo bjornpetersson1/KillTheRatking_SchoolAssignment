@@ -34,6 +34,18 @@ public abstract class LevelElement
 
         return !LevelData.Elements.Any(k => k != this && k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
     }
+    public void CollideAndConcequences()
+    {
+        var collider = this.GetCollider();
+        if (collider is not Wall)
+        {
+            Console.SetCursorPosition(0, 1);
+            PrintFightresult(Fight(collider), collider);
+            collider.PrintFightresult(collider.Fight(this), this);
+            this.PrintUnitInfo();
+            collider.PrintUnitInfo();
+        }
+    }
     public LevelElement GetCollider()
     {
         CoOrdinate targetSpace = new CoOrdinate(this);
@@ -52,10 +64,11 @@ public abstract class LevelElement
         }
         else return -1;
     }
+    //TODO råttorna attackerar varandra
     public int Fight(LevelElement enemy)
     {
 
-        if (enemy != this && (enemy is Enemy || enemy is Player))
+        if (enemy != this && (enemy is Enemy || enemy is Player) && !(enemy is Enemy && this is Enemy))
         {
             return this.Attack(enemy);
         }

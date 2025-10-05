@@ -34,6 +34,7 @@ public abstract class GameLoop:LevelElement
                 enemy.Erase();
                 enemy.Update(player);
             }
+            LevelData.Elements.RemoveAll(e => e is Enemy && e.HP <= 0);
             foreach (var element in LevelData.Elements)
             {
                 if (element is Player)

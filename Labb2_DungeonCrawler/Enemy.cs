@@ -13,6 +13,7 @@ public abstract class Enemy : LevelElement
     {
         Console.SetCursorPosition(0, 3);
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.WriteLine($"|{Character}: {Name} | HP: {HP} | Attack: {AttackDice} | Defence: {DefenceDice} |");
+        if (HP > 0) Console.WriteLine($"|{Character}: {Name} | HP: {HP} | Attack: {AttackDice} | Defence: {DefenceDice} |");
+        else Console.WriteLine($"{Name} is now killed and dead");
     }
 }

@@ -8,7 +8,7 @@ namespace Labb2_DungeonCrawler;
 
 public class Rat : Enemy
 {
-    public override string Name { get { return "rat"; } set { this.Name = value; } }
+   
 
     public override char Character { get { return 'r'; } }
 
@@ -24,6 +24,7 @@ public class Rat : Enemy
         this.AttackDice = new Dice(6, 1, 3);
         this.DefenceDice = new Dice(6, 1, 1);
         this.HP = 10;
+        this.Name = "rat";
     }
 
     public override void Update(Player player)
@@ -36,37 +37,37 @@ public class Rat : Enemy
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    CollideAndConcequences();
                     this.xCordinate++;
                     break;
                 }
-                break;
             case 1:
                 this.xCordinate++;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    CollideAndConcequences();
                     this.xCordinate--;
                     break;
                 }
-                break;
             case 2:
                 this.yCordinate--;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    CollideAndConcequences();
                     this.yCordinate++;
                     break;
                 }
-                break;
             case 3:
                 this.yCordinate++;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
+                    CollideAndConcequences();
                     this.yCordinate--;
                     break;
                 }
-                break;
         }    
     }
 }
