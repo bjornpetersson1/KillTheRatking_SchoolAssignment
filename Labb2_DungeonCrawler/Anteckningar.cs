@@ -19,12 +19,13 @@ namespace Labb2_DungeonCrawler;
 
 //print player skriver ut | en sån för mycket
 
-//råttorna attackerar varandra
 
 //ändra algoritmen för ormens rörelser, den borde va smartare
     //kolla vilken ruta som är längst bort från spelaren
 
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+//råttorna attackerar varandra
 
 //dodgy name propfull i rat o snake
 

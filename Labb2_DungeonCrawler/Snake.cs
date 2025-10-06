@@ -29,6 +29,7 @@ public class Snake : Enemy
             if (this.xCordinate == player.xCordinate && this.yCordinate > player.yCordinate)
             {
                 this.yCordinate++;
+                //TODO om y-- är större än blasblsb osv..
                 if (!this.IsSpaceAvailable()) this.yCordinate--;
             }
             else if (this.xCordinate == player.xCordinate && this.yCordinate < player.yCordinate)

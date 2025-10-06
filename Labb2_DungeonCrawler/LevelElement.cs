@@ -37,7 +37,7 @@ public abstract class LevelElement
     public void CollideAndConcequences()
     {
         var collider = this.GetCollider();
-        if (collider is not Wall)
+        if (collider is not Wall && !(collider.GetType() ==this.GetType()))
         {
             Console.SetCursorPosition(0, 1);
             PrintFightresult(Fight(collider), collider);
@@ -68,7 +68,7 @@ public abstract class LevelElement
     public int Fight(LevelElement enemy)
     {
 
-        if (enemy != this && (enemy is Enemy || enemy is Player) && !(enemy is Enemy && this is Enemy))
+        if (enemy != this && (enemy is Enemy || enemy is Player))
         {
             return this.Attack(enemy);
         }
