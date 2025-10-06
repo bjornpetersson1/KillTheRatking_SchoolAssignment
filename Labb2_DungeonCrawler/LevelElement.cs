@@ -4,6 +4,7 @@ public abstract class LevelElement
 {
     public int xCordinate { get; set; }
     public int yCordinate { get; set; }
+    public int XP { get; set; }
     public virtual char Character { get; }
     public virtual ConsoleColor MyColor { get; }
     public virtual Dice AttackDice { get; set; }
@@ -37,8 +38,11 @@ public abstract class LevelElement
     public void CollideAndConcequences()
     {
         var collider = this.GetCollider();
-        if (collider is not Wall && !(collider.GetType() ==this.GetType()))
+        if (collider is not Wall && !(collider is Enemy && this is Enemy))
         {
+            Console.SetCursorPosition(0, 1);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, 1);
             PrintFightresult(Fight(collider), collider);
             collider.PrintFightresult(collider.Fight(this), this);
@@ -64,7 +68,6 @@ public abstract class LevelElement
         }
         else return -1;
     }
-    //TODO råttorna attackerar varandra
     public int Fight(LevelElement enemy)
     {
 
@@ -75,7 +78,7 @@ public abstract class LevelElement
         else return -1;
     }
     public void PrintFightresult(int fightreturn, LevelElement enemy)
-    {
+    { 
         if (fightreturn != -1)
         {
             Console.ForegroundColor = ConsoleColor.Red;

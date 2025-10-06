@@ -7,23 +7,22 @@ using System.Threading.Tasks;
 namespace Labb2_DungeonCrawler;
 
 
-//Fightgrejen borde inte va baserad i playerupdate
-    //just nu attackerrar inte fiender dom bara counterattackera
-
-//Bugg i skriva ut fightresultat, tar inte bort text
-    //dodgy sätt att sätta cursorn
-
 
 //fixa så man kan skriva in sitt eget namn
     //förslagsvis på startskärmen (som du också ska göra)
 
 //print player skriver ut | en sån för mycket
 
+//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+//Fightgrejen borde inte va baserad i playerupdate
+    //just nu attackerrar inte fiender dom bara counterattackera
 
 //ändra algoritmen för ormens rörelser, den borde va smartare
     //kolla vilken ruta som är längst bort från spelaren
 
-//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+//Bugg i skriva ut fightresultat, tar inte bort text
+    //dodgy sätt att sätta cursorn
 
 //råttorna attackerar varandra
 

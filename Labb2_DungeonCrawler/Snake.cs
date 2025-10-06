@@ -21,58 +21,52 @@ public class Snake : Enemy
         this.Name = "snake";
     }
 
+    public void SnakeNextMove(Player player)
+    {
+        //TODO det här kommer gå att göra om till delegate
+        var directions = new Dictionary<string, double>();
+        this.yCordinate++;
+        if (this.IsSpaceAvailable()) directions["south"] = this.GetDistanceTo(player);
+        this.yCordinate--;
+
+        this.yCordinate--;
+        if (this.IsSpaceAvailable()) directions["north"] = this.GetDistanceTo(player);
+        this.yCordinate++;
+
+        this.xCordinate++;
+        if (this.IsSpaceAvailable()) directions["west"] = this.GetDistanceTo(player);
+        this.xCordinate--;
+
+        this.xCordinate--;
+        if (this.IsSpaceAvailable()) directions["east"] = this.GetDistanceTo(player);
+        this.xCordinate++;
+        if (directions.Any())
+        {
+            var bestMove = directions.OrderByDescending(d => d.Value).First().Key;
+            switch(bestMove)
+            {
+                case "south":
+                    this.yCordinate++;
+                    break;
+                case "north":
+                    this.yCordinate--;
+                    break;
+                case "west":
+                    this.xCordinate++;
+                    break;
+                case "east":
+                    this.xCordinate--;
+                    break;
+            }
+        }
+
+    }
+
     public override void Update(Player player)
     {
-        //TODO fixa ormens updatemetod
         if (this.GetDistanceTo(player) < 2)
         {
-            if (this.xCordinate == player.xCordinate && this.yCordinate > player.yCordinate)
-            {
-                this.yCordinate++;
-                //TODO om y-- är större än blasblsb osv..
-                if (!this.IsSpaceAvailable()) this.yCordinate--;
-            }
-            else if (this.xCordinate == player.xCordinate && this.yCordinate < player.yCordinate)
-            {
-                this.yCordinate--;
-                if (!this.IsSpaceAvailable()) this.yCordinate++;
-            }
-            else if (this.yCordinate == player.yCordinate && this.xCordinate > player.xCordinate)
-            {
-                this.xCordinate++;
-                if (!this.IsSpaceAvailable()) this.xCordinate--;
-            }
-            else if (this.yCordinate == player.yCordinate && this.xCordinate < player.xCordinate)
-            {
-                this.xCordinate--;
-                if (!this.IsSpaceAvailable()) this.xCordinate++;
-            }
-            else if (Math.Abs(this.xCordinate - player.xCordinate) > Math.Abs(this.yCordinate - player.yCordinate))
-            {
-                if (this.yCordinate > player.yCordinate)
-                {
-                    this.yCordinate++;
-                    if (!this.IsSpaceAvailable()) this.yCordinate--;
-                }
-                else
-                {
-                    this.yCordinate--;
-                    if (!this.IsSpaceAvailable()) this.yCordinate++;
-                }
-            }
-            else
-            {
-                if (this.xCordinate > player.xCordinate)
-                {
-                    this.xCordinate++;
-                    if (!this.IsSpaceAvailable()) this.xCordinate--;
-                }
-                else
-                {
-                    this.xCordinate--;
-                    if (!this.IsSpaceAvailable()) this.xCordinate++;
-                }
-            }
+            this.SnakeNextMove(player);
         }
     }
 }

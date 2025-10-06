@@ -20,14 +20,17 @@ public class Player : LevelElement
         this.AttackDice = new Dice(6, 2, 2);
         this.DefenceDice = new Dice(6, 2, 0);
         this.HP = 100;
+        this.XP = 0;
         this.Name = name;
         this.TurnsPlayed = 0;
     }
     public override void PrintUnitInfo()
     {
         Console.SetCursorPosition(0, 0);
+        Console.Write(new string(' ', Console.WindowWidth));
+        Console.SetCursorPosition(0, 0);
         Console.ForegroundColor = ConsoleColor.DarkCyan;
-        Console.WriteLine($"|{Character}: {Name} | HP: {HP} | Attack: {AttackDice} | Defence: {DefenceDice} | Turn: {TurnsPlayed} |");
+        Console.WriteLine($"|{Character}: {Name} | HP: {HP} | XP: {XP}| Attack: {AttackDice} | Defence: {DefenceDice} | Turn: {TurnsPlayed} |");
     }
     public void Update()
     {

@@ -12,6 +12,8 @@ public abstract class Enemy : LevelElement
     public override void PrintUnitInfo()
     {
         Console.SetCursorPosition(0, 3);
+        Console.Write(new string(' ', Console.WindowWidth));
+        Console.SetCursorPosition(0, 3);
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         if (HP > 0) Console.WriteLine($"|{Character}: {Name} | HP: {HP} | Attack: {AttackDice} | Defence: {DefenceDice} |");
         else Console.WriteLine($"{Name} is now killed and dead");
