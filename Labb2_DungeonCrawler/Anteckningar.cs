@@ -8,24 +8,27 @@ namespace Labb2_DungeonCrawler;
 
 
 //Fightgrejen borde inte va baserad i playerupdate
-    //just nu attackerrar inte fiender dom bara counterattackerar
-
-//Fixa player switch, DNR!!!!
+    //just nu attackerrar inte fiender dom bara counterattackera
 
 //Bugg i skriva ut fightresultat, tar inte bort text
     //dodgy sätt att sätta cursorn
 
-//dodgy name propfull i rat o snake
 
 //fixa så man kan skriva in sitt eget namn
     //förslagsvis på startskärmen (som du också ska göra)
 
 //print player skriver ut | en sån för mycket
 
+//råttorna attackerar varandra
 
-//råttorna attackeerar varandra
+//ändra algoritmen för ormens rörelser, den borde va smartare
+    //kolla vilken ruta som är längst bort från spelaren
 
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+//dodgy name propfull i rat o snake
+
+//Fixa player switch, DNR!!!!
 
 //Fight
     //Kolla kollision
