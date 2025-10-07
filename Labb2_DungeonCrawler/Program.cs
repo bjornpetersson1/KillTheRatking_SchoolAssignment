@@ -10,7 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        LevelData.Load("Level1.txt");
+        LevelData.Load("Level2.txt");
         GameLoop.GameStart();
 
     }

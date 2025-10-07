@@ -5,12 +5,13 @@ public abstract class LevelElement
     public int xCordinate { get; set; }
     public int yCordinate { get; set; }
     public int XP { get; set; }
-    public virtual char Character { get; }
+    public virtual char Character { get; set; }
     public virtual ConsoleColor MyColor { get; }
     public virtual Dice AttackDice { get; set; }
     public virtual Dice DefenceDice { get; set; }
     public virtual int HP { get; set; }
     public virtual string Name { get; set; }
+    public int TurnsPlayed { get; set; }
 
 
     public virtual void PrintUnitInfo() { }

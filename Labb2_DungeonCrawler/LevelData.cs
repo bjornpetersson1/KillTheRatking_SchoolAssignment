@@ -36,6 +36,9 @@ public abstract class LevelData : LevelElement
                     case 's':
                         _elements.Add(new Snake() { yCordinate = row, xCordinate = i });
                         break;
+                    case 'R':
+                        _elements.Add(new RatBoss() { yCordinate = row, xCordinate = i });
+                        break;
                     default:
                         break;
                 }

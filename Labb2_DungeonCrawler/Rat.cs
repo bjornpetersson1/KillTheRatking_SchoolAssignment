@@ -10,7 +10,7 @@ public class Rat : Enemy
 {
    
 
-    public override char Character { get { return 'r'; } }
+    public override char Character { get; set; }
 
     public override ConsoleColor MyColor { get { return ConsoleColor.Red; } }
 
@@ -25,6 +25,7 @@ public class Rat : Enemy
         this.DefenceDice = new Dice(6, 1, 1);
         this.HP = 10;
         this.Name = "rat";
+        this.Character = 'r';
     }
 
     public override void Update(Player player)

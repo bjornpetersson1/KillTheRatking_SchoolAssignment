@@ -14,7 +14,6 @@ public class Player : LevelElement
     public override Dice AttackDice { get; set; }
     public override Dice DefenceDice { get; set; }
     public override string Name { get; set; }
-    public int TurnsPlayed { get; set; }
     public Player(string name = "player")
     {
         this.AttackDice = new Dice(6, 2, 2);
