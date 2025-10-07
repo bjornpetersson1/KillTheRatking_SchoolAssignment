@@ -71,6 +71,7 @@ public static class StartAndEndScreen
         Console.Clear();
         string levelSelect1 = "press [1] to play level 1";
         string levelSelect2 = "press [2] to play level 2";
+        string levelSelect3 = "press [2] to play level 3";
         Console.ForegroundColor = ConsoleColor.Red;
         Console.SetCursorPosition(15, 10);
         foreach (var item in levelSelect1)
