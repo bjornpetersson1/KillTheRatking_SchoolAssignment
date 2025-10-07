@@ -8,15 +8,6 @@ namespace Labb2_DungeonCrawler;
 
 public class Rat : Enemy
 {
-   
-
-    public override char Character { get; set; }
-
-    public override ConsoleColor MyColor { get { return ConsoleColor.Red; } }
-
-    public override Dice AttackDice { get; set; }
-    public override Dice DefenceDice { get; set; }
-
     private Random random;
     public Rat()
     {
@@ -26,6 +17,7 @@ public class Rat : Enemy
         this.HP = 10;
         this.Name = "rat";
         this.Character = 'r';
+        this.MyColor = ConsoleColor.Red;
     }
 
     public override void Update(Player player)

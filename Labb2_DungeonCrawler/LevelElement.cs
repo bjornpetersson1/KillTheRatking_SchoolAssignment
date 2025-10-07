@@ -6,7 +6,7 @@ public abstract class LevelElement
     public int yCordinate { get; set; }
     public int XP { get; set; }
     public virtual char Character { get; set; }
-    public virtual ConsoleColor MyColor { get; }
+    public virtual ConsoleColor MyColor { get; set; }
     public virtual Dice AttackDice { get; set; }
     public virtual Dice DefenceDice { get; set; }
     public virtual int HP { get; set; }

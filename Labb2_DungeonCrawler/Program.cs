@@ -10,6 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.SetBufferSize(Console.WindowWidth, 60);
         LevelData.Load("Level2.txt");
         GameLoop.GameStart();
 

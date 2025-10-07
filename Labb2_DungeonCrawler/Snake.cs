@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 namespace Labb2_DungeonCrawler;
 public class Snake : Enemy
 {
-    public override char Character { get; set; }
-
-    public override ConsoleColor MyColor { get { return ConsoleColor.Yellow; } }
-
-    public override Dice AttackDice { get; set; }
-    public override Dice DefenceDice { get; set; }
     public Snake()
     {
         this.AttackDice = new Dice(4, 3, 2);
@@ -20,6 +14,7 @@ public class Snake : Enemy
         this.HP = 25;
         this.Name = "snake";
         this.Character = 's';
+        this.MyColor = ConsoleColor.Yellow;
     }
 
     public void SnakeNextMove(Player player)

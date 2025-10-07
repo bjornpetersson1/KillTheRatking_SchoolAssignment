@@ -21,7 +21,7 @@ public abstract class GameLoop:LevelElement
             {
                 element.Draw();
             }
-            else if (element.GetDistanceTo(player) < 5)
+            else if (element.GetDistanceTo(player) < 50)
             {
                 element.Draw();
             }
@@ -54,7 +54,7 @@ public abstract class GameLoop:LevelElement
                 {
                     element.Draw();
                 }
-                else if (element.GetDistanceTo(player) < 5)
+                else if (element.GetDistanceTo(player) < 50)
                 {
                     element.Draw();
                 }
