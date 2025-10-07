@@ -10,9 +10,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.SetBufferSize(Console.WindowWidth, 60);
-        LevelData.Load("Level2.txt");
-        GameLoop.GameStart();
+        ConsoleKeyInfo menuChoice;
+        do
+        {
+            Console.SetBufferSize(Console.WindowWidth, 60);
+            LevelData.Elements?.Clear();
+            GameLoop.GameStart();
+            menuChoice = Console.ReadKey(true);
+        }
+        while (menuChoice.Key != ConsoleKey.Escape);
 
     }
 }

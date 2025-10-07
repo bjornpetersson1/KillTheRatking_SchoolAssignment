@@ -13,15 +13,17 @@ public class RatBossTail : Enemy
         this.Character = '¤';
         this.MyColor = ConsoleColor.DarkYellow;
         this.Name = "theKingsTail";
+        this.HP = 254;
+        this.AttackDice = new Dice(0, 0, 20);
 
     }
 
     public override void Update(Player player)
     {
 
-        if (TurnsPlayed % 3 == 0)
-        {
+        //if (TurnsPlayed % 3 == 0)
+        //{
 
-        }
+        //}
     }
 }

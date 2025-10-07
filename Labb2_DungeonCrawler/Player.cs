@@ -8,20 +8,16 @@ namespace Labb2_DungeonCrawler;
 
 public class Player : LevelElement
 {
-    public override char Character { get { return '@'; } }
-
-    public override ConsoleColor MyColor { get { return ConsoleColor.White; } }
-    public override Dice AttackDice { get; set; }
-    public override Dice DefenceDice { get; set; }
-    public override string Name { get; set; }
     public Player(string name = "player")
     {
         this.AttackDice = new Dice(6, 2, 2);
         this.DefenceDice = new Dice(6, 2, 0);
-        this.HP = 100;
+        this.HP = 10;
         this.XP = 0;
         this.Name = name;
         this.TurnsPlayed = 0;
+        this.Character = '@';
+        this.MyColor = ConsoleColor.White;
     }
     public override void PrintUnitInfo()
     {

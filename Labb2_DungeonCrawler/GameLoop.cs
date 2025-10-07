@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Labb2_DungeonCrawler;
 
@@ -10,10 +11,26 @@ public abstract class GameLoop:LevelElement
 {
     public static void GameStart()
     {
+        ConsoleKeyInfo menuChoice;
         Console.CursorVisible = false;
-        ConsoleKeyInfo userMove; //TODO hitta en snyggare lösning på esc
+        string userName = StartAndEndScreen.WriteStartScreen();
+        menuChoice = Console.ReadKey(true);
+        StartAndEndScreen.WriteLevelSelect();
+        menuChoice = Console.ReadKey(true);
+        switch (menuChoice.Key)
+        {
+            case ConsoleKey.D1:
+                LevelData.Load("Level1.txt");
+                break;
+            case ConsoleKey.D2:
+                LevelData.Load("Level2.txt");
+                break;
+        }
         var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
         var enemys = LevelData.Elements.OfType<Enemy>().ToList();
+        player.Name = userName;
+        ConsoleKeyInfo userMove;
+        Console.Clear();
         player.PrintUnitInfo();
         foreach (var element in LevelData.Elements)
         {
@@ -21,7 +38,7 @@ public abstract class GameLoop:LevelElement
             {
                 element.Draw();
             }
-            else if (element.GetDistanceTo(player) < 50)
+            else if (element.GetDistanceTo(player) < 5)
             {
                 element.Draw();
             }
@@ -54,12 +71,13 @@ public abstract class GameLoop:LevelElement
                 {
                     element.Draw();
                 }
-                else if (element.GetDistanceTo(player) < 50)
+                else if (element.GetDistanceTo(player) < 5)
                 {
                     element.Draw();
                 }
             }
         }
-        while (true);
+        while (player.HP > 0);
+        StartAndEndScreen.WriteEndScreen(player);
     }
 }

@@ -8,12 +8,17 @@ namespace Labb2_DungeonCrawler;
 
 
 
-//fixa så man kan skriva in sitt eget namn
-    //förslagsvis på startskärmen (som du också ska göra)
 
 //print player skriver ut | en sån för mycket
 
+//fixa säkerhet med knapptryck
+    //esc o enter vid menyval
+    //piltangenterna för att göra en turn, just nu funkar vilken knapp som helst
+
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+//fixa så man kan skriva in sitt eget namn
+    //förslagsvis på startskärmen (som du också ska göra)
 
 //Fightgrejen borde inte va baserad i playerupdate
     //just nu attackerrar inte fiender dom bara counterattackera

@@ -24,64 +24,93 @@ public class RatBoss : Enemy
     {
         var tails = LevelData.Elements.OfType<RatBossTail>().ToList();
         int move = random.Next(4);
-        if (TurnsPlayed % 2 == 0)
+        this.TurnsPlayed++;
+        if (this.TurnsPlayed % 2 == 0)
         {
-            //switch (move)
-            //{
-            //    case 0:
-            //        this.xCordinate --;
-            //        foreach (var tail in tails)
-            //        {
-            //            tail.xCordinate--;
-            //        }
-            //        if (this.IsSpaceAvailable()) break;
-            //        else
-            //        {
-            //            CollideAndConcequences();
-            //            this.xCordinate ++;
-            //            break;
-            //        }
-            //    case 1:
-            //        this.xCordinate ++;
-            //        foreach (var tail in tails)
-            //        {
-            //            tail.xCordinate++;
-            //        }
-            //        if (this.IsSpaceAvailable()) break;
-            //        else
-            //        {
-            //            CollideAndConcequences();
-            //            this.xCordinate --;
-            //            break;
-            //        }
-            //    case 2:
-            //        this.yCordinate --;
-            //        foreach (var tail in tails)
-            //        {
-            //            tail.yCordinate--;
-            //        }
-            //        if (this.IsSpaceAvailable()) break;
-            //        else
-            //        {
-            //            CollideAndConcequences();
-            //            this.yCordinate ++;
-            //            break;
-            //        }
-            //    case 3:
-            //        this.yCordinate ++;
-            //        foreach (var tail in tails)
-            //        {
-            //            tail.yCordinate++;
-            //        }
-            //        if (this.IsSpaceAvailable()) break;
-            //        else
-            //        {
-            //            CollideAndConcequences();
-            //            this.yCordinate --;
-            //            break;
-            //        }
+            switch (move)
+            {
+                case 0:
+                    this.xCordinate--;
+                    if (this.IsSpaceAvailable())
+                    {
+                        foreach (var tail in tails)
+                        {
+                            tail.xCordinate--;
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        CollideAndConcequences();
+                        this.xCordinate++;
+                        break;
+                    }
+                case 1:
+                    this.xCordinate++;
+                    foreach (var tail in tails)
+                    {
+                        tail.xCordinate++;
+                    }
+                    if (this.IsSpaceAvailable())
+                    {
+                        foreach (var tail in tails)
+                        {
+                            tail.xCordinate--;
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        CollideAndConcequences();
+                        this.xCordinate--;
+                        break;
+                    }
+                case 2:
+                    this.yCordinate--;
+                    foreach (var tail in tails)
+                    {
+                        tail.yCordinate--;
+                    }
+                    if (this.IsSpaceAvailable())
+                    {
+                        foreach (var tail in tails)
+                        {
+                            tail.xCordinate--;
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        CollideAndConcequences();
+                        this.yCordinate++;
+                        break;
+                    }
+                case 3:
+                    this.yCordinate++;
+                    foreach (var tail in tails)
+                    {
+                        tail.yCordinate++;
+                    }
+                    if (this.IsSpaceAvailable())
+                    {
+                        foreach (var tail in tails)
+                        {
+                            tail.xCordinate--;
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        CollideAndConcequences();
+                        this.yCordinate--;
+                        break;
+                    }
 
-            //}
+            }
+            if (this.TurnsPlayed % 3 == 0)
+            {
+                
+            }
         }
     }
 }

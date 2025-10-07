@@ -39,9 +39,9 @@ public abstract class LevelData : LevelElement
                     case 'R':
                         _elements.Add(new RatBoss() { yCordinate = row, xCordinate = i });
                         break;
-                    case '¤':
-                        _elements.Add(new RatBossTail() { yCordinate = row, xCordinate = i});
-                        break;
+                    //case '¤':
+                    //    _elements.Add(new RatBossTail() { yCordinate = row, xCordinate = i});
+                    //    break;
                     default:
                         break;
                 }
