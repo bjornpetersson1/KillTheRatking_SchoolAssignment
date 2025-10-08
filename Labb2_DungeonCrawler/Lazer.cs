@@ -11,7 +11,7 @@ public class Lazer : LevelElement
     public Lazer()
     {
         this.Name = "lazer";
-        this.Character = 'Z';
+        this.Character = '~';
         this.MyColor = ConsoleColor.Magenta;
     }
 
