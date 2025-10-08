@@ -8,6 +8,7 @@ namespace Labb2_DungeonCrawler;
 
 public class Player : LevelElement
 {
+    public ConsoleKey LastMove { get; set; }
     public Player(string name = "player")
     {
         this.AttackDice = new Dice(6, 2, 2);
@@ -18,6 +19,7 @@ public class Player : LevelElement
         this.TurnsPlayed = 0;
         this.Character = '@';
         this.MyColor = ConsoleColor.White;
+        this.LastMove = ConsoleKey.RightArrow;
     }
     public override void PrintUnitInfo()
     {
@@ -32,13 +34,12 @@ public class Player : LevelElement
         this.PrintUnitInfo();
         this.TurnsPlayed++;
         ConsoleKeyInfo userMove = Console.ReadKey(true);
-        ConsoleKey lastMove = null; //TODO varför funkar inte det här???
         this.Erase();
         switch (userMove.Key)
         {
             case ConsoleKey.UpArrow:
                 this.yCordinate--;
-                lastMove = ConsoleKey.UpArrow;
+                LastMove = ConsoleKey.UpArrow;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
@@ -48,7 +49,7 @@ public class Player : LevelElement
                 }
             case ConsoleKey.LeftArrow:
                 this.xCordinate--;
-                lastMove = ConsoleKey.LeftArrow;
+                LastMove = ConsoleKey.LeftArrow;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
@@ -58,7 +59,7 @@ public class Player : LevelElement
                 }
             case ConsoleKey.RightArrow:
                 this.xCordinate++;
-                lastMove = ConsoleKey.RightArrow;
+                LastMove = ConsoleKey.RightArrow;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
@@ -68,7 +69,7 @@ public class Player : LevelElement
                 }
             case ConsoleKey.DownArrow:
                 this.yCordinate++;
-                lastMove = ConsoleKey.DownArrow;
+                LastMove = ConsoleKey.DownArrow;
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
@@ -77,34 +78,56 @@ public class Player : LevelElement
                     break;
                 }
             case ConsoleKey.Z:
-                switch(lastMove)
+                switch(LastMove)
                 {
                     case ConsoleKey.UpArrow:
                         for (global::System.Int32 i = 1; i <= 4; i++)
                         {
-                            LevelData.Elements.Add(new Lazer() { yCordinate = this.yCordinate - i, xCordinate = this.xCordinate });
+                            Lazer lazer = new Lazer() { yCordinate = this.yCordinate - i, xCordinate = this.xCordinate };
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            else
+                            {
+                                lazer.CollideAndConcequences();
+                                break;
+                            }
                         }
                         break;
                     case ConsoleKey.DownArrow:
                         for (global::System.Int32 i = 1; i <= 4; i++)
                         {
-                            LevelData.Elements.Add(new Lazer() { yCordinate = this.yCordinate + i, xCordinate = this.xCordinate });
+                            Lazer lazer = new Lazer() { yCordinate = this.yCordinate + i, xCordinate = this.xCordinate };
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            else
+                            {
+                                lazer.CollideAndConcequences();
+                                break;
+                            }
                         }
                         break;
                     case ConsoleKey.LeftArrow:
                         for (global::System.Int32 i = 1; i <= 4; i++)
                         {
-                            LevelData.Elements.Add(new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate - i });
+                            Lazer lazer = new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate - i };
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            else
+                            {
+                                lazer.CollideAndConcequences();
+                                break;
+                            }
                         }
                         break;
                     case ConsoleKey.RightArrow:
                         for (global::System.Int32 i = 1; i <= 4; i++)
                         {
-                            LevelData.Elements.Add(new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate + i });
+                            Lazer lazer = new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate + i };
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            else
+                            {
+                                lazer.CollideAndConcequences();
+                                break;
+                            }
                         }
                         break;
-
-
                 }
                 break;
 
