@@ -15,8 +15,6 @@ public abstract class GameLoop:LevelElement
         Console.CursorVisible = false;
         string userName = StartAndEndScreen.WriteStartScreen();
         menuChoice = Console.ReadKey(true);
-        StartAndEndScreen.WriteLevelSelect();
-        menuChoice = Console.ReadKey(true);
         switch (menuChoice.Key)
         {
             case ConsoleKey.D1:

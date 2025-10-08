@@ -14,6 +14,7 @@ class Program
         do
         {
             Console.SetBufferSize(Console.WindowWidth, 60);
+            StartAndEndScreen.WriteTitleScreen();
             LevelData.Elements?.Clear();
             GameLoop.GameStart();
             menuChoice = Console.ReadKey(true);
