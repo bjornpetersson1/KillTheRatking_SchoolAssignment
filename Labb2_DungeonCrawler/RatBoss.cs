@@ -22,7 +22,15 @@ public class RatBoss : Enemy
     }
     public override void Update(Player player)
     {
-        var tails = LevelData.Elements.OfType<RatBossTail>().ToList();
+        var tails = LevelData.Elements.OfType<RatBossTail>()?.ToList();
+        if (!(tails is null))
+        {
+            foreach (var tail in tails)
+            {
+                tail.Erase();
+            }
+        }
+        LevelData.Elements.RemoveAll(t => t is RatBossTail);
         int move = random.Next(4);
         this.TurnsPlayed++;
         if (this.TurnsPlayed % 2 == 0)
@@ -31,14 +39,7 @@ public class RatBoss : Enemy
             {
                 case 0:
                     this.xCordinate--;
-                    if (this.IsSpaceAvailable())
-                    {
-                        foreach (var tail in tails)
-                        {
-                            tail.xCordinate--;
-                        }
-                        break;
-                    }
+                    if (this.IsSpaceAvailable()) break;
                     else
                     {
                         CollideAndConcequences();
@@ -51,14 +52,7 @@ public class RatBoss : Enemy
                     {
                         tail.xCordinate++;
                     }
-                    if (this.IsSpaceAvailable())
-                    {
-                        foreach (var tail in tails)
-                        {
-                            tail.xCordinate--;
-                        }
-                        break;
-                    }
+                    if (this.IsSpaceAvailable()) break;
                     else
                     {
                         CollideAndConcequences();
@@ -71,14 +65,7 @@ public class RatBoss : Enemy
                     {
                         tail.yCordinate--;
                     }
-                    if (this.IsSpaceAvailable())
-                    {
-                        foreach (var tail in tails)
-                        {
-                            tail.xCordinate--;
-                        }
-                        break;
-                    }
+                    if (this.IsSpaceAvailable()) break;
                     else
                     {
                         CollideAndConcequences();
@@ -91,14 +78,7 @@ public class RatBoss : Enemy
                     {
                         tail.yCordinate++;
                     }
-                    if (this.IsSpaceAvailable())
-                    {
-                        foreach (var tail in tails)
-                        {
-                            tail.xCordinate--;
-                        }
-                        break;
-                    }
+                    if (this.IsSpaceAvailable()) break;
                     else
                     {
                         CollideAndConcequences();
@@ -109,7 +89,85 @@ public class RatBoss : Enemy
             }
             if (this.TurnsPlayed % 3 == 0)
             {
-                
+                switch(move)
+                {
+                    case 0:
+                        for (global::System.Int32 i = 1; i <= 3; i++)
+                        {
+                            RatBossTail tail = new RatBossTail() { yCordinate = this.yCordinate - i, xCordinate = this.xCordinate };
+                            if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
+                            else
+                            {
+                                tail.CollideAndConcequences();
+                                break;
+                            }
+                            RatBossTail tail2 = new RatBossTail() { yCordinate = this.yCordinate + i, xCordinate = this.xCordinate };
+                            if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
+                            else
+                            {
+                                tail2.CollideAndConcequences();
+                                break;
+                            }
+                        }
+                        break;
+                    case 1:
+                        for (global::System.Int32 i = 1; i <= 3; i++)
+                        {
+                            RatBossTail tail = new RatBossTail() { yCordinate = this.yCordinate + i, xCordinate = this.xCordinate };
+                            if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
+                            else
+                            {
+                                tail.CollideAndConcequences();
+                                break;
+                            }
+                            RatBossTail tail2 = new RatBossTail() { yCordinate = this.yCordinate, xCordinate = this.xCordinate - i };
+                            if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
+                            else
+                            {
+                                tail2.CollideAndConcequences();
+                                break;
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (global::System.Int32 i = 1; i <= 3; i++)
+                        {
+                            RatBossTail tail = new RatBossTail() { yCordinate = this.yCordinate, xCordinate = this.xCordinate - i };
+                            if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
+                            else
+                            {
+                                tail.CollideAndConcequences();
+                                break;
+                            }
+                            RatBossTail tail2 = new RatBossTail() { yCordinate = this.yCordinate, xCordinate = this.xCordinate + i };
+                            if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
+                            else
+                            {
+                                tail2.CollideAndConcequences();
+                                break;
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (global::System.Int32 i = 1; i <= 3; i++)
+                        {
+                            RatBossTail tail = new RatBossTail() { yCordinate = this.yCordinate, xCordinate = this.xCordinate + i };
+                            if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
+                            else
+                            {
+                                tail.CollideAndConcequences();
+                                break;
+                            }
+                            RatBossTail tail2 = new RatBossTail() { yCordinate = this.yCordinate - i, xCordinate = this.xCordinate };
+                            if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
+                            else
+                            {
+                                tail2.CollideAndConcequences();
+                                break;
+                            }
+                        }
+                        break;
+                }
             }
         }
     }

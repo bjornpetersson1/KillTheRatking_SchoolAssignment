@@ -15,15 +15,12 @@ public class RatBossTail : Enemy
         this.Name = "theKingsTail";
         this.HP = 254;
         this.AttackDice = new Dice(0, 0, 20);
+        this.DefenceDice = new Dice(20, 20, 20);
 
     }
 
     public override void Update(Player player)
     {
 
-        //if (TurnsPlayed % 3 == 0)
-        //{
-
-        //}
     }
 }

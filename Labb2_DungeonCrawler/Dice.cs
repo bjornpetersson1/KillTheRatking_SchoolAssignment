@@ -28,7 +28,7 @@ public class Dice
         {
             result += random.Next(SidesPerDice);   
         }
-        return result;
+        return result + Modifier;
     }
     public override string ToString()
     {

@@ -11,6 +11,7 @@ namespace Labb2_DungeonCrawler;
 
 public static class StartAndEndScreen
 {
+    private static int writingSpeed = 30; 
     public static void WriteEndScreen(Player player)
     {
         Console.Clear();
@@ -21,14 +22,14 @@ public static class StartAndEndScreen
         foreach (var item in gameOver)
         {
             Console.Write(item);
-            Thread.Sleep(300);
+            Thread.Sleep(200);
         }
         Console.SetCursorPosition(0, 12);
         Console.ForegroundColor = ConsoleColor.DarkRed;
         foreach (var item in roundInfo)
         {
             Console.Write(item);
-            Thread.Sleep(80);
+            Thread.Sleep(writingSpeed);
         }
     }
     public static string WriteStartScreen()
@@ -40,7 +41,7 @@ public static class StartAndEndScreen
         foreach (var item in hello)
         {
             Console.Write(item);
-            Thread.Sleep(100);
+            Thread.Sleep(writingSpeed);
         }
         Console.SetCursorPosition(15, 12);
         Console.CursorVisible = true;
@@ -55,14 +56,14 @@ public static class StartAndEndScreen
         foreach (var item in gameStart1)
         {
             Console.Write(item);
-            Thread.Sleep(120);
+            Thread.Sleep(writingSpeed);
         }
         Console.WriteLine();
         Console.SetCursorPosition(15, 15);
         foreach (var item in gameStart2)
         {
             Console.Write(item);
-            Thread.Sleep(120);
+            Thread.Sleep(writingSpeed);
         }
         return result;
     }
@@ -71,19 +72,25 @@ public static class StartAndEndScreen
         Console.Clear();
         string levelSelect1 = "press [1] to play level 1";
         string levelSelect2 = "press [2] to play level 2";
-        string levelSelect3 = "press [2] to play level 3";
+        string levelSelect3 = "press [3] to play level 3";
         Console.ForegroundColor = ConsoleColor.Red;
         Console.SetCursorPosition(15, 10);
         foreach (var item in levelSelect1)
         {
             Console.Write(item);
-            Thread.Sleep(80);
+            Thread.Sleep(writingSpeed);
         }
         Console.SetCursorPosition(15, 11);
         foreach (var item in levelSelect2)
         {
             Console.Write(item);
-            Thread.Sleep(80);
+            Thread.Sleep(writingSpeed);
+        }
+        Console.SetCursorPosition(15, 12);
+        foreach (var item in levelSelect3)
+        {
+            Console.Write(item);
+            Thread.Sleep(writingSpeed);
         }
     }
 }

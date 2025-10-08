@@ -25,10 +25,13 @@ public abstract class GameLoop:LevelElement
             case ConsoleKey.D2:
                 LevelData.Load("Level2.txt");
                 break;
+            case ConsoleKey.D3:
+                LevelData.Load("Level3.txt");
+                break;
         }
         var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
         var enemys = LevelData.Elements.OfType<Enemy>().ToList();
-        player.Name = userName;
+        player.Name = userName; 
         ConsoleKeyInfo userMove;
         Console.Clear();
         player.PrintUnitInfo();

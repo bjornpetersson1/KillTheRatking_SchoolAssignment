@@ -14,7 +14,7 @@ public class Lazer : LevelElement
         this.Character = '~';
         this.MyColor = ConsoleColor.Magenta;
         this.AttackDice = new Dice(0, 0, 20);
+        this.DefenceDice = new Dice(20, 20, 20);
     }
-    //TODO lös så att lazern försvinner efter attacken
 
 }

@@ -35,6 +35,12 @@ public class Player : LevelElement
         this.TurnsPlayed++;
         ConsoleKeyInfo userMove = Console.ReadKey(true);
         this.Erase();
+        var lazers = LevelData.Elements.OfType<Lazer>().ToList();
+        LevelData.Elements.RemoveAll(l => l is Lazer);
+        foreach (var lazer in lazers)
+        {
+            lazer.Erase();
+        }
         switch (userMove.Key)
         {
             case ConsoleKey.UpArrow:

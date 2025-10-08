@@ -9,13 +9,17 @@ namespace Labb2_DungeonCrawler;
 
 
 
-//print player skriver ut | en sån för mycket
 
 //fixa säkerhet med knapptryck
     //esc o enter vid menyval
     //piltangenterna för att göra en turn, just nu funkar vilken knapp som helst
 
+//fixa svansen och lazern ska inte behöva ha hp och defence
+    //Lazern fortsätter leva när kungen är död
+
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+//print player skriver ut | en sån för mycket
 
 //fixa så man kan skriva in sitt eget namn
     //förslagsvis på startskärmen (som du också ska göra)
