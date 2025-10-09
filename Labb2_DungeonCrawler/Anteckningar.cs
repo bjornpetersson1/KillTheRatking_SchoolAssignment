@@ -13,6 +13,7 @@ namespace Labb2_DungeonCrawler;
 //fixa säkerhet med knapptryck
     //esc o enter vid menyval
     //piltangenterna för att göra en turn, just nu funkar vilken knapp som helst
+    //knapptryck ska inte spilla över under meny eller play again osv
 
 //fixa svansen och lazern ska inte behöva ha hp och defence
     //Lazern fortsätter leva när kungen är död
