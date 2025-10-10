@@ -8,12 +8,29 @@ namespace Labb2_DungeonCrawler;
 
 public class Wall : LevelElement
 {
+    private bool IsFound = false;
     public Wall()
     {
         Character = '#';
-        MyColor = ConsoleColor.Gray;
+        MyColor = ConsoleColor.DarkGray;
     }
-
+    
+    public void Update(Player player)
+    {
+        if (GetDistanceTo(player) < 5)
+        {
+            MyColor = ConsoleColor.Gray;
+            IsFound = true;
+        }
+        else if (IsFound)
+        {
+            MyColor = ConsoleColor.DarkGray;
+        }
+    }
+    public bool IsToBeDrawn()
+    {
+        return IsFound;
+    }
 }
 
 

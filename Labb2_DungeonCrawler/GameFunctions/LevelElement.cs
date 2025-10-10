@@ -48,7 +48,7 @@ public abstract class LevelElement
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, 1);
             PrintFightresult(Fight(collider), collider);
-            collider.PrintFightresult(collider.Fight(this), this);
+            if(collider.HP > 0) collider.PrintFightresult(collider.Fight(this), this);
             this.PrintUnitInfo();
             collider.PrintUnitInfo();
         }

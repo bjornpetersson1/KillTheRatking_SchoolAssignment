@@ -33,9 +33,15 @@ public abstract class GameLoop:LevelElement
         while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3);
         var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
         var enemys = LevelData.Elements.OfType<Enemy>().ToList();
+        var walls = LevelData.Elements.OfType<Wall>().ToList();
         player.Name = userName; 
         Console.Clear();
         player.PrintUnitInfo();
+        foreach (var wall in walls)
+        {
+            wall.Update(player);
+            if (wall.IsToBeDrawn()) wall.Draw();
+        }
         foreach (var element in LevelData.Elements)
         {
             if (element is Player)
@@ -50,7 +56,13 @@ public abstract class GameLoop:LevelElement
         do
         {
             enemys = LevelData.Elements.OfType<Enemy>().ToList();
+            walls = LevelData.Elements.OfType<Wall>().ToList();
             player.Update();
+            foreach (var wall in walls)
+            {
+                wall.Update(player);
+                if (wall.IsToBeDrawn()) wall.Draw();
+            }
             foreach (var enemy in enemys)
             {
                 enemy.Erase();

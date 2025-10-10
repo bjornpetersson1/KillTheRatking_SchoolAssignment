@@ -26,7 +26,7 @@ public class Player : LevelElement
         Console.SetCursorPosition(0, 0);
         Console.Write(new string(' ', Console.WindowWidth));
         Console.SetCursorPosition(0, 0);
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine($"|{Character}: {Name} | HP: {HP} | XP: {XP}| Attack: {AttackDice} | Defence: {DefenceDice} | Turn: {TurnsPlayed} |");
     }
     public void Update()

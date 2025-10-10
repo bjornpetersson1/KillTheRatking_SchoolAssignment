@@ -10,7 +10,6 @@ namespace Labb2_DungeonCrawler;
 
 
 
-//Läs igenom labben och kolla så allt stämmer
 
 //fixa säkerhet med knapptryck
     //piltangenterna för att göra en turn, just nu funkar vilken knapp som helst
@@ -21,6 +20,10 @@ namespace Labb2_DungeonCrawler;
 //Skriv en random-generator om du har tid
 
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+//Läs igenom labben och kolla så allt stämmer
+
+//Visionrange, ljusa/mörka väggar
 
 //print player skriver ut | en sån för mycket
 
