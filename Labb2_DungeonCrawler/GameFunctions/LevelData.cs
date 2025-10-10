@@ -20,7 +20,7 @@ public abstract class LevelData : LevelElement
         _elements = new List<LevelElement>();
         foreach (var line in File.ReadAllLines(fileName))
         {
-            for (global::System.Int32 i = 0; i < line.Length; i++)
+            for (int i = 0; i < line.Length; i++)
             {
                 switch(line[i])
                 {

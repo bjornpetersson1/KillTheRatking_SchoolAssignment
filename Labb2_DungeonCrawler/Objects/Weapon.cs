@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public class Wall : LevelElement
+public class Weapon:LevelElement
 {
-    public Wall()
+    public bool IsEquipped { get; set; }
+    public Weapon()
     {
-        this.Character = '#';
-        this.MyColor = ConsoleColor.Gray;
+        IsEquipped = false;
     }
-
 }
-
-

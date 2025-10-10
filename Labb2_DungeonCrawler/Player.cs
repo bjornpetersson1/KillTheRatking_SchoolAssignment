@@ -13,7 +13,7 @@ public class Player : LevelElement
     {
         this.AttackDice = new Dice(6, 2, 2);
         this.DefenceDice = new Dice(6, 2, 0);
-        this.HP = 10;
+        this.HP = 100;
         this.XP = 0;
         this.Name = name;
         this.TurnsPlayed = 0;

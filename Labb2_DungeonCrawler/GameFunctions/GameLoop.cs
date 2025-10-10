@@ -13,24 +13,27 @@ public abstract class GameLoop:LevelElement
     {
         ConsoleKeyInfo menuChoice;
         Console.CursorVisible = false;
-        string userName = StartAndEndScreen.WriteStartScreen();
-        menuChoice = Console.ReadKey(true);
-        switch (menuChoice.Key)
+        string userName = Graphics.WriteStartScreen();
+        do
         {
-            case ConsoleKey.D1:
-                LevelData.Load("Level1.txt");
-                break;
-            case ConsoleKey.D2:
-                LevelData.Load("Level2.txt");
-                break;
-            case ConsoleKey.D3:
-                LevelData.Load("Level3.txt");
-                break;
+            menuChoice = Console.ReadKey(true);
+            switch (menuChoice.Key)
+            {
+                case ConsoleKey.D1:
+                    LevelData.Load("Level1.txt");
+                    break;
+                case ConsoleKey.D2:
+                    LevelData.Load("Level2.txt");
+                    break;
+                case ConsoleKey.D3:
+                    LevelData.Load("Level3.txt");
+                    break;
+            }   
         }
+        while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3);
         var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
         var enemys = LevelData.Elements.OfType<Enemy>().ToList();
         player.Name = userName; 
-        ConsoleKeyInfo userMove;
         Console.Clear();
         player.PrintUnitInfo();
         foreach (var element in LevelData.Elements)
@@ -46,6 +49,7 @@ public abstract class GameLoop:LevelElement
         }
         do
         {
+            enemys = LevelData.Elements.OfType<Enemy>().ToList();
             player.Update();
             foreach (var enemy in enemys)
             {
@@ -79,6 +83,6 @@ public abstract class GameLoop:LevelElement
             }
         }
         while (player.HP > 0);
-        StartAndEndScreen.WriteEndScreen(player);
+        Graphics.WriteEndScreen(player);
     }
 }

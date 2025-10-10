@@ -1,5 +1,7 @@
 ﻿using Labb2_DungeonCrawler;
 
+
+
 public abstract class LevelElement
 {
     public int xCordinate { get; set; }
@@ -91,6 +93,7 @@ public abstract class LevelElement
             Console.WriteLine($"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage");
         }
     }
+
 
 
 }

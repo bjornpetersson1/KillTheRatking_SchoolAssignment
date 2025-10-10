@@ -10,16 +10,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        ConsoleKeyInfo menuChoice;
+        ConsoleKeyInfo proceed;
         do
         {
             Console.SetBufferSize(Console.WindowWidth, 60);
-            StartAndEndScreen.WriteTitleScreen();
+            Graphics.WriteTitleScreen();
             LevelData.Elements?.Clear();
+            proceed = Console.ReadKey(true);
             GameLoop.GameStart();
-            menuChoice = Console.ReadKey(true);
+            proceed = Console.ReadKey(true);
         }
-        while (menuChoice.Key != ConsoleKey.Escape);
+        while (proceed.Key != ConsoleKey.Escape);
 
     }
 }

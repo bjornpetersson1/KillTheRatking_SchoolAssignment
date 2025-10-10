@@ -16,9 +16,9 @@ public class Dice
     {
         if (sidesPerDice < 0) throw new ArgumentOutOfRangeException("Value can't be less than 0");
         if (numberOfDice < 0) throw new ArgumentOutOfRangeException("Value can't be less than 0");
-        this.SidesPerDice = sidesPerDice;
-        this.NumberOfDice = numberOfDice;
-        this.Modifier = modifier;
+        SidesPerDice = sidesPerDice;
+        NumberOfDice = numberOfDice;
+        Modifier = modifier;
         random = new Random();
     }
     public int Throw()

@@ -9,7 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Labb2_DungeonCrawler;
 
-public static class StartAndEndScreen
+public static class Graphics
 {
     private static int writingSpeed = 30; 
     public static void WriteTitleScreen()
