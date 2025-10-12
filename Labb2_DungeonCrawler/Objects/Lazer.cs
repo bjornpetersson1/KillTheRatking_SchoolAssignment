@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public class Lazer : Weapon
+public class Lazer : LevelElement
 {
     public Lazer()
     {
         Name = "lazer";
-        Character = '~';
+        Symbol = '~';
         MyColor = ConsoleColor.Magenta;
         AttackDice = new Dice(0, 0, 20);
     }

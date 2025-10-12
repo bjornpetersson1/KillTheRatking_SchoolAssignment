@@ -6,22 +6,40 @@ public abstract class LevelElement
 {
     public int xCordinate { get; set; }
     public int yCordinate { get; set; }
-    public int XP { get; set; }
-    public virtual char Character { get; set; }
+    public virtual char Symbol { get; set; }
     public virtual ConsoleColor MyColor { get; set; }
+    public virtual string Name { get; set; }
+    public int TurnsPlayed { get; set; }
+    public int XP { get; set; }
     public virtual Dice AttackDice { get; set; }
     public virtual Dice DefenceDice { get; set; }
     public virtual int HP { get; set; }
-    public virtual string Name { get; set; }
-    public int TurnsPlayed { get; set; }
 
 
     public virtual void PrintUnitInfo() { }
+    public static void LevelChoice(ConsoleKeyInfo menuChoice)
+    {
+        do
+        {
+            switch (menuChoice.Key)
+            {
+                case ConsoleKey.D1:
+                    LevelData.Load("Level1.txt");
+                    break;
+                case ConsoleKey.D2:
+                    LevelData.Load("Level2.txt");
+                    break;
+                case ConsoleKey.D3:
+                    LevelData.Load("Level3.txt");
+                    break;
+            }
+        } while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3);
+    }
     public void Draw()
     {
         Console.SetCursorPosition(xCordinate, yCordinate);
         Console.ForegroundColor = MyColor;
-        Console.Write(Character);
+        Console.Write(Symbol);
     }
     public void Erase()
     {
@@ -48,7 +66,7 @@ public abstract class LevelElement
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, 1);
             PrintFightresult(Fight(collider), collider);
-            if(collider.HP > 0) collider.PrintFightresult(collider.Fight(this), this);
+            if (collider.HP > 0) collider.PrintFightresult(collider.Fight(this), this);
             this.PrintUnitInfo();
             collider.PrintUnitInfo();
         }
@@ -81,7 +99,7 @@ public abstract class LevelElement
         else return -1;
     }
     public void PrintFightresult(int fightreturn, LevelElement enemy)
-    { 
+    {
         if (fightreturn != -1)
         {
             Console.ForegroundColor = ConsoleColor.Red;

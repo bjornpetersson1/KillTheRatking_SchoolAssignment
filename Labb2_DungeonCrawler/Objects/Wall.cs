@@ -11,7 +11,7 @@ public class Wall : LevelElement
     private bool IsFound = false;
     public Wall()
     {
-        Character = '#';
+        Symbol = '#';
         MyColor = ConsoleColor.DarkGray;
     }
     

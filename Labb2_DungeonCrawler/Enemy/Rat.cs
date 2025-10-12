@@ -16,7 +16,7 @@ public class Rat : Enemy
         DefenceDice = new Dice(6, 1, 1);
         HP = 10;
         Name = "rat";
-        Character = 'r';
+        Symbol = 'r';
         MyColor = ConsoleColor.Red;
     }
 

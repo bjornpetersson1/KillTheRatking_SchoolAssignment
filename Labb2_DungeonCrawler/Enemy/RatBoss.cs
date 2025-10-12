@@ -18,7 +18,7 @@ public class RatBoss : Enemy
         DefenceDice = new Dice(6, 1, 1);
         HP = 85;
         Name = "ratKing";
-        Character = 'R';
+        Symbol = 'R';
         MyColor = ConsoleColor.DarkRed;
         
     }

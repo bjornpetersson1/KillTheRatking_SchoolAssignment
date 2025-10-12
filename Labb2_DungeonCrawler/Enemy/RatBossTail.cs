@@ -11,7 +11,7 @@ public class RatBossTail : Enemy
     private int lifeTime = 1;
     public RatBossTail()
     {
-        Character = '¤';
+        Symbol = '¤';
         MyColor = ConsoleColor.DarkYellow;
         Name = "theKingsTail";
         AttackDice = new Dice(0, 0, 20);

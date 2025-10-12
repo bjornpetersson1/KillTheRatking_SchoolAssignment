@@ -86,7 +86,7 @@ public static class Graphics
         }
 
     }
-    public static void WriteEndScreen(Player player)
+    public static ConsoleKeyInfo WriteEndScreen(Player player)
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -105,6 +105,7 @@ public static class Graphics
             Console.Write(item);
             Thread.Sleep(writingSpeed);
         }
+        return Console.ReadKey(true);
     }
     public static string WriteStartScreen()
     {
@@ -123,18 +124,21 @@ public static class Graphics
         Console.Write("Name: ");
         string result = Console.ReadLine();
         Console.CursorVisible = false;
+        return result;
+    }
+    public static void WriteLevelSelect(string userName)
+    {
+        string levelSelect1 = "press [1] to play level 1";
+        string levelSelect2 = "press [2] to play level 2";
+        string levelSelect3 = "press [3] to play level 3";
+        string gameStart1 = $"Alright {userName}...";
         Console.SetCursorPosition(15, 14);
         Console.ForegroundColor = ConsoleColor.Green;
-        string gameStart1 = $"Alright {result}...";
         foreach (var item in gameStart1)
         {
             Console.Write(item);
             Thread.Sleep(writingSpeed);
         }
-        Console.WriteLine();
-        string levelSelect1 = "press [1] to play level 1";
-        string levelSelect2 = "press [2] to play level 2";
-        string levelSelect3 = "press [3] to play level 3";
         Console.ForegroundColor = ConsoleColor.Red;
         Console.SetCursorPosition(15, 16);
         foreach (var item in levelSelect1)
@@ -149,33 +153,6 @@ public static class Graphics
             Thread.Sleep(writingSpeed);
         }
         Console.SetCursorPosition(15, 18);
-        foreach (var item in levelSelect3)
-        {
-            Console.Write(item);
-            Thread.Sleep(writingSpeed);
-        }
-        return result;
-    }
-    public static void WriteLevelSelect()
-    {
-        Console.Clear();
-        string levelSelect1 = "press [1] to play level 1";
-        string levelSelect2 = "press [2] to play level 2";
-        string levelSelect3 = "press [3] to play level 3";
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.SetCursorPosition(15, 10);
-        foreach (var item in levelSelect1)
-        {
-            Console.Write(item);
-            Thread.Sleep(writingSpeed);
-        }
-        Console.SetCursorPosition(15, 11);
-        foreach (var item in levelSelect2)
-        {
-            Console.Write(item);
-            Thread.Sleep(writingSpeed);
-        }
-        Console.SetCursorPosition(15, 12);
         foreach (var item in levelSelect3)
         {
             Console.Write(item);

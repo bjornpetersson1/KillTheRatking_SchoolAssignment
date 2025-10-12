@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Labb2_DungeonCrawler.GameFunctions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,11 @@ public class Player : LevelElement
     {
         this.AttackDice = new Dice(6, 2, 2);
         this.DefenceDice = new Dice(6, 2, 0);
-        this.HP = 100;
+        this.HP = 10;
         this.XP = 0;
         this.Name = name;
         this.TurnsPlayed = 0;
-        this.Character = '@';
+        this.Symbol = '@';
         this.MyColor = ConsoleColor.White;
         this.LastMove = ConsoleKey.RightArrow;
     }
@@ -27,13 +28,13 @@ public class Player : LevelElement
         Console.Write(new string(' ', Console.WindowWidth));
         Console.SetCursorPosition(0, 0);
         Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine($"|{Character}: {Name} | HP: {HP} | XP: {XP}| Attack: {AttackDice} | Defence: {DefenceDice} | Turn: {TurnsPlayed} |");
+        Console.WriteLine($"|{Symbol}: {Name} | HP: {HP} | XP: {XP}| Attack: {AttackDice} | Defence: {DefenceDice} | Turn: {TurnsPlayed} |");
     }
-    public void Update()
+    public void Update(ConsoleKeyInfo userMove)
     {
         this.PrintUnitInfo();
         this.TurnsPlayed++;
-        ConsoleKeyInfo userMove = Console.ReadKey(true);
+        //ConsoleKeyInfo userMove = Console.ReadKey(true);
         this.Erase();
         var lazers = LevelData.Elements.OfType<Lazer>().ToList();
         LevelData.Elements.RemoveAll(l => l is Lazer);

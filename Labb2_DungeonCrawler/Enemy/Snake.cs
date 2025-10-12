@@ -13,7 +13,7 @@ public class Snake : Enemy
         DefenceDice = new Dice(8, 1, 5);
         HP = 25;
         Name = "snake";
-        Character = 's';
+        Symbol = 's';
         MyColor = ConsoleColor.Yellow;
     }
 

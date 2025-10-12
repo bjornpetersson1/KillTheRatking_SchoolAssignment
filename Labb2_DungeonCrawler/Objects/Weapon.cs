@@ -9,6 +9,7 @@ namespace Labb2_DungeonCrawler;
 public class Weapon:LevelElement
 {
     public bool IsEquipped { get; set; }
+    public Dice AttackDice { get; set; }
     public Weapon()
     {
         IsEquipped = false;

@@ -10,16 +10,21 @@ namespace Labb2_DungeonCrawler;
 
 
 
+//Gör en Character-klass för properties som enemy och player har gemensamt
+        //Det här ledde till att jag behöver göra en konfliktklass, för trött att fixa det nu gör det sen
 
 //fixa säkerhet med knapptryck
     //piltangenterna för att göra en turn, just nu funkar vilken knapp som helst
-    //lös esc för att komma ur leveln
 
 //Lös plocka upp och equippa lazern
 
 //Skriv en random-generator om du har tid
 
+//Avsluta spelet/New game
+
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+    //lös esc för att komma ur leveln
 
 //Läs igenom labben och kolla så allt stämmer
 
