@@ -86,7 +86,7 @@ public static class Graphics
         }
 
     }
-    public static ConsoleKeyInfo WriteEndScreen(Player player)
+    public static void WriteEndScreen(Player player)
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -105,7 +105,7 @@ public static class Graphics
             Console.Write(item);
             Thread.Sleep(writingSpeed);
         }
-        return Console.ReadKey(true);
+        //return Console.ReadKey(true);
     }
     public static string WriteStartScreen()
     {

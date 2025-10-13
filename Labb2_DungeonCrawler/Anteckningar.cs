@@ -18,13 +18,18 @@ namespace Labb2_DungeonCrawler;
 
 //Lös plocka upp och equippa lazern
 
+//Skriv ut info om esc ny bana
+
 //Skriv en random-generator om du har tid
 
-//Avsluta spelet/New game
+//Avsluta spelet
+    //2 ggr esc???
 
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
 
-    //lös esc för att komma ur leveln
+//new game
+
+//lös esc för att komma ur leveln
 
 //Läs igenom labben och kolla så allt stämmer
 

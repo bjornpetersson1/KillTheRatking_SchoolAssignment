@@ -12,7 +12,8 @@ public abstract class GameLoop:LevelElement
     public static void GameStart()
     {
         while (true)
-        {            
+        {
+            bool isAlive = true;
             ConsoleKeyInfo menuChoice;
             Console.CursorVisible = false;
             string userName = Graphics.WriteStartScreen();
@@ -94,16 +95,19 @@ public abstract class GameLoop:LevelElement
 
                 if (player.HP <= 0)
                 {
-                    menuChoice = Graphics.WriteEndScreen(player);
+                    isAlive = false;
+                    Graphics.WriteEndScreen(player);
+
                     do
                     {
-                         if (menuChoice.Key == ConsoleKey.Escape) break; 
+                        menuChoice = Console.ReadKey(true); 
                     }
                     while (menuChoice.Key != ConsoleKey.Escape && menuChoice.Key != ConsoleKey.Enter);
-                    if (menuChoice.Key == ConsoleKey.Escape) break;
+                    if (menuChoice.Key == ConsoleKey.Enter) Console.Clear();
+                    else if (menuChoice.Key == ConsoleKey.Escape) break;
                 }
             }
-            if(player)//TODO lös att stänga av / new game
+            if (isAlive == false) break;
         }
     }
 }
