@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,7 +28,7 @@ public class RatBossTail : Enemy
             LevelData.Elements.Remove(this);
         }
     }
-    public static void AddRatTails(int random0To3, int y, int x)
+    public static void AddRatTails(int random0To3, int y, int x, Player player)
     {
         switch (random0To3)
         {
@@ -38,7 +39,7 @@ public class RatBossTail : Enemy
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
-                        tail.CollideAndConcequences();
+                        tail.CollideAndConcequences(player);
                         break;
                     }
                 }
@@ -48,7 +49,7 @@ public class RatBossTail : Enemy
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
-                        tail2.CollideAndConcequences();
+                        tail2.CollideAndConcequences(player);
                         break;
                     }
                 }
@@ -60,7 +61,7 @@ public class RatBossTail : Enemy
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
-                        tail.CollideAndConcequences();
+                        tail.CollideAndConcequences(player);
                         break;
                     }
                 }
@@ -70,7 +71,7 @@ public class RatBossTail : Enemy
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
-                        tail2.CollideAndConcequences();
+                        tail2.CollideAndConcequences(player);
                         break;
                     }
                 }
@@ -82,7 +83,7 @@ public class RatBossTail : Enemy
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
-                        tail.CollideAndConcequences();
+                        tail.CollideAndConcequences(player);
                         break;
                     }
                 }
@@ -92,7 +93,7 @@ public class RatBossTail : Enemy
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
-                        tail2.CollideAndConcequences();
+                        tail2.CollideAndConcequences(player);
                         break;
                     }
                 }
@@ -104,7 +105,7 @@ public class RatBossTail : Enemy
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
-                        tail.CollideAndConcequences();
+                        tail.CollideAndConcequences(player);
                         break;
                     }
                 }
@@ -114,7 +115,7 @@ public class RatBossTail : Enemy
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
-                        tail2.CollideAndConcequences();
+                        tail2.CollideAndConcequences(player);
                         break;
                     }
                 }

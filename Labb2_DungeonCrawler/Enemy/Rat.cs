@@ -30,7 +30,7 @@ public class Rat : Enemy
                 if (IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(player);
                     xCordinate++;
                     break;
                 }
@@ -39,7 +39,7 @@ public class Rat : Enemy
                 if (IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(player);
                     xCordinate--;
                     break;
                 }
@@ -48,7 +48,7 @@ public class Rat : Enemy
                 if (IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(player);
                     yCordinate++;
                     break;
                 }
@@ -57,7 +57,7 @@ public class Rat : Enemy
                 if (IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(player);
                     yCordinate--;
                     break;
                 }

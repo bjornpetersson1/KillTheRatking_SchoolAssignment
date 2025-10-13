@@ -36,7 +36,7 @@ public class RatBoss : Enemy
                     if (IsSpaceAvailable()) break;
                     else
                     {
-                        CollideAndConcequences();
+                        CollideAndConcequences(player);
                         xCordinate++;
                         break;
                     }
@@ -45,7 +45,7 @@ public class RatBoss : Enemy
                     if (IsSpaceAvailable()) break;
                     else
                     {
-                        CollideAndConcequences();
+                        CollideAndConcequences(player);
                         xCordinate--;
                         break;
                     }
@@ -54,7 +54,7 @@ public class RatBoss : Enemy
                     if (IsSpaceAvailable()) break;
                     else
                     {
-                        CollideAndConcequences();
+                        CollideAndConcequences(player);
                         yCordinate++;
                         break;
                     }
@@ -63,7 +63,7 @@ public class RatBoss : Enemy
                     if (IsSpaceAvailable()) break;
                     else
                     {
-                        CollideAndConcequences();
+                        CollideAndConcequences(player);
                         yCordinate--;
                         break;
                     }
@@ -71,7 +71,7 @@ public class RatBoss : Enemy
             }
             if (TurnsPlayed % 3 == 0 && HP > 0)
             {
-               RatBossTail.AddRatTails(move, yCordinate, xCordinate);
+               RatBossTail.AddRatTails(move, yCordinate, xCordinate, player);
             }
         }
     }

@@ -56,7 +56,7 @@ public abstract class LevelElement
 
         return !LevelData.Elements.Any(k => k != this && k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
     }
-    public void CollideAndConcequences()
+    public void CollideAndConcequences(Player player)
     {
         var collider = this.GetCollider();
         if (collider is not Wall && !(collider is Enemy && this is Enemy))
@@ -65,8 +65,8 @@ public abstract class LevelElement
             Console.Write(new string(' ', Console.WindowWidth));
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, 1);
-            PrintFightresult(Fight(collider), collider);
-            if (collider.HP > 0) collider.PrintFightresult(collider.Fight(this), this);
+            PrintFightresult(Fight(collider), collider, player);
+            if (collider.HP > 0) collider.PrintFightresult(collider.Fight(this), this, player);
             this.PrintUnitInfo();
             collider.PrintUnitInfo();
         }
@@ -98,12 +98,32 @@ public abstract class LevelElement
         }
         else return -1;
     }
-    public void PrintFightresult(int fightreturn, LevelElement enemy)
+    public void PrintFightresult(int fightreturn, LevelElement enemy, Player player)
     {
-        if (fightreturn != -1)
+        if (enemy is RatBossTail)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{player.Name} attacked the Kings tail and it had no effect. You can't damage the tail");
+        }
+        else if (enemy is Lazer)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{this.Name} attacked the lazer and it had no effect. You can't damage the lazer");
+        }
+        else if (fightreturn != -1 && this is Lazer)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"{player.Name} used {this.Name} on {enemy.Name} with {this.AttackDice} attack and {enemy.Name} defended with {enemy.DefenceDice}. Attack was successfull and did {fightreturn} damage");
+        }
+        else if (fightreturn != -1)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"{this.Name} attacked {enemy.Name} with {this.AttackDice} and {enemy.Name} defended with {enemy.DefenceDice}. Attack was successfull and did {fightreturn} damage");
+        }
+        else if (this is Lazer)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{player.Name} used {this.Name} on {enemy.Name} with {this.AttackDice} attack and {enemy.Name} defended with {enemy.DefenceDice}. Attack failed and did no damage");
         }
         else
         {

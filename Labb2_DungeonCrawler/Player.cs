@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,7 +51,7 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(this);
                     this.yCordinate++;
                     break;
                 }
@@ -60,7 +61,7 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(this);
                     this.xCordinate++;
                     break;
                 }
@@ -70,7 +71,7 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(this);
                     this.xCordinate--;
                     break;
                 }
@@ -80,7 +81,7 @@ public class Player : LevelElement
                 if (this.IsSpaceAvailable()) break;
                 else
                 {
-                    CollideAndConcequences();
+                    CollideAndConcequences(this);
                     this.yCordinate--;
                     break;
                 }
@@ -94,7 +95,7 @@ public class Player : LevelElement
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
                             else
                             {
-                                lazer.CollideAndConcequences();
+                                lazer.CollideAndConcequences(this);
                                 break;
                             }
                         }
@@ -106,7 +107,7 @@ public class Player : LevelElement
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
                             else
                             {
-                                lazer.CollideAndConcequences();
+                                lazer.CollideAndConcequences(this);
                                 break;
                             }
                         }
@@ -118,7 +119,7 @@ public class Player : LevelElement
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
                             else
                             {
-                                lazer.CollideAndConcequences();
+                                lazer.CollideAndConcequences(this);
                                 break;
                             }
                         }
@@ -130,7 +131,7 @@ public class Player : LevelElement
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
                             else
                             {
-                                lazer.CollideAndConcequences();
+                                lazer.CollideAndConcequences(this);
                                 break;
                             }
                         }
