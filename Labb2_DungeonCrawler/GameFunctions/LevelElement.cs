@@ -1,4 +1,5 @@
 ﻿using Labb2_DungeonCrawler;
+using Labb2_DungeonCrawler.GameFunctions;
 
 
 
@@ -32,8 +33,11 @@ public abstract class LevelElement
                 case ConsoleKey.D3:
                     LevelData.Load("Level3.txt");
                     break;
+                case ConsoleKey.D4:
+                    LevelData.Load(RandomMap.GenerateMap());
+                    break;
             }
-        } while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3);
+        } while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3 && menuChoice.Key != ConsoleKey.D4);
     }
     public void Draw()
     {

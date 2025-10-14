@@ -12,6 +12,12 @@ namespace Labb2_DungeonCrawler;
 public static class Graphics
 {
     private static int writingSpeed = 30; 
+    public static void WriteInfo()
+    {
+        Console.SetCursorPosition(4, 40);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write("Press [esc] to leave and play another level (HP and XP is saved)");
+    }
     public static void WriteTitleScreen()
     {
         Console.SetCursorPosition(0, 0);
@@ -91,7 +97,7 @@ public static class Graphics
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkGray;
         string gameOver = "game over.";
-        string roundInfo = $"{player.Name} died a heroic death fighting rats and\nsnakes in {player.TurnsPlayed} turns and recieved {player.XP} xp\npress [enter] to play again or [escape] to quit";
+        string roundInfo = $"{player.Name} died a heroic death fighting rats and\nsnakes in {player.TurnsPlayed} turns and gained {player.XP} xp\npress [enter] to play again or [escape] to quit";
         Console.SetCursorPosition(15, 10);
         foreach (var item in gameOver)
         {
@@ -131,6 +137,7 @@ public static class Graphics
         string levelSelect1 = "press [1] to play level 1";
         string levelSelect2 = "press [2] to play level 2";
         string levelSelect3 = "press [3] to play level 3";
+        string levelSelect4 = "press [4] to generate a random level (works most of the time)";
         string gameStart1 = $"Alright {userName}...";
         Console.SetCursorPosition(15, 14);
         Console.ForegroundColor = ConsoleColor.Green;
@@ -154,6 +161,12 @@ public static class Graphics
         }
         Console.SetCursorPosition(15, 18);
         foreach (var item in levelSelect3)
+        {
+            Console.Write(item);
+            Thread.Sleep(writingSpeed);
+        }
+        Console.SetCursorPosition(15, 19);
+        foreach (var item in levelSelect4)
         {
             Console.Write(item);
             Thread.Sleep(writingSpeed);

@@ -14,6 +14,8 @@ public abstract class GameLoop:LevelElement
         while (true)
         {
             bool isAlive = true;
+            int savedXP = 0;
+            int savedHP = 100; //TODO det måste du lösa, INTE SNYGGT
             ConsoleKeyInfo menuChoice;
             Console.CursorVisible = false;
             string userName = Graphics.WriteStartScreen();
@@ -26,9 +28,12 @@ public abstract class GameLoop:LevelElement
                 var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
                 var enemys = LevelData.Elements.OfType<Enemy>().ToList();
                 var walls = LevelData.Elements.OfType<Wall>().ToList();
+                player.XP = savedXP;
+                player.HP = savedHP;
                 player.Name = userName; 
                 Console.Clear();
                 player.PrintUnitInfo();
+                Graphics.WriteInfo();
                 foreach (var wall in walls)
                 {
                     wall.Update(player);
@@ -47,12 +52,15 @@ public abstract class GameLoop:LevelElement
                 }
                 do
                 {
+                    Graphics.WriteInfo();
                     enemys = LevelData.Elements.OfType<Enemy>().ToList();
                     walls = LevelData.Elements.OfType<Wall>().ToList();
                     menuChoice = Console.ReadKey(true);
                     if (menuChoice.Key == ConsoleKey.Escape)
                     {
                         Console.Clear();
+                        savedXP = player.XP;
+                        savedHP = player.HP;
                         break;
                     }
                     player.Update(menuChoice);
@@ -77,6 +85,11 @@ public abstract class GameLoop:LevelElement
                     {
                         player.XP += 57;
                     }
+                    var deadKings = LevelData.Elements.OfType<RatBoss>().Where(e => e.HP <= 0).ToList();
+                    foreach (var king in deadKings)
+                    {
+                        player.XP += 132;
+                    }
 
                     LevelData.Elements.RemoveAll(e => e is Enemy enemy && enemy.HP <= 0);
 
@@ -96,6 +109,8 @@ public abstract class GameLoop:LevelElement
                 if (player.HP <= 0)
                 {
                     isAlive = false;
+                    savedXP = 0;
+                    savedHP = 100;
                     Graphics.WriteEndScreen(player);
 
                     do
