@@ -12,7 +12,7 @@ public abstract class GameLoop:LevelElement
 {
     public static void GameStart()
     {
-        SoundPlayer musicPlayer = new SoundPlayer("09. Björn Petersson - Uppenbarelse.wav");
+        SoundPlayer musicPlayer = new SoundPlayer("ProjectFiles\\09. Björn Petersson - Uppenbarelse.wav");
         musicPlayer.PlayLooping();
         while (true)
         {

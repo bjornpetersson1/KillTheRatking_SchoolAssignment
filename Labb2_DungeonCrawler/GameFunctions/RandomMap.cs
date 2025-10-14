@@ -173,8 +173,8 @@ public abstract class RandomMap : LevelElement
             }
             mySB.AppendLine();
         }
-        File.WriteAllText("GeneratedMap.txt", mySB.ToString());
-        return "GeneratedMap.txt";
+        File.WriteAllText("ProjectFiles\\GeneratedMap.txt", mySB.ToString());
+        return "ProjectFiles\\GeneratedMap.txt";
     }
 
     public struct CenterOfRoom

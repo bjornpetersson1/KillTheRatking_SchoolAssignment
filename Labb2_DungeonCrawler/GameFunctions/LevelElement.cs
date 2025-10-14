@@ -25,15 +25,16 @@ public abstract class LevelElement
             switch (menuChoice.Key)
             {
                 case ConsoleKey.D1:
-                    LevelData.Load("Level1.txt");
+                    LevelData.Load("ProjectFiles\\Level1.txt");
                     break;
                 case ConsoleKey.D2:
-                    LevelData.Load("Level2.txt");
+                    LevelData.Load("ProjectFiles\\Level2.txt");
                     break;
                 case ConsoleKey.D3:
-                    LevelData.Load("Level3.txt");
+                    LevelData.Load("ProjectFiles\\Level3.txt");
                     break;
                 case ConsoleKey.D4:
+
                     LevelData.Load(RandomMap.GenerateMap());
                     break;
             }
