@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Media;
 
 namespace Labb2_DungeonCrawler;
 
@@ -11,6 +12,8 @@ public abstract class GameLoop:LevelElement
 {
     public static void GameStart()
     {
+        SoundPlayer musicPlayer = new SoundPlayer("09. Björn Petersson - Uppenbarelse.wav");
+        musicPlayer.PlayLooping();
         while (true)
         {
             bool isAlive = true;

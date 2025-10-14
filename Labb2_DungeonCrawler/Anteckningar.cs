@@ -14,15 +14,13 @@ namespace Labb2_DungeonCrawler;
         //Det här ledde till att jag behöver göra en konfliktklass, för trött att fixa det nu gör det sen
 
 //Lös plocka upp och equippa lazern
+    //Eller gör fullösningen att man hittar något och det berättar att man alltid haft lazern
+
+//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
 
 //Skriv ut info om esc ny bana
 
 //Skriv en random-generator om du har tid
-
-//Avsluta spelet
-    //2 ggr esc???
-
-//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
 
 //fixa säkerhet med knapptryck
     //piltangenterna för att göra en turn, just nu funkar vilken knapp som helst
