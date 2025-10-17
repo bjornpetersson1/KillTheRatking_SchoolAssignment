@@ -19,7 +19,6 @@ public class Snake : Enemy
 
     public void SnakeNextMove(Player player)
     {
-        //TODO det här kommer gå att göra om till delegate
         var directions = new Dictionary<string, double>();
         yCordinate++;
         if (IsSpaceAvailable()) directions["south"] = GetDistanceTo(player);

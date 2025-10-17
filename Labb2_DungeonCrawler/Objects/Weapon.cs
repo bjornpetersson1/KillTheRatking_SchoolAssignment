@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public class Weapon:LevelElement
-{
-    public bool IsEquipped { get; set; }
-    public Dice AttackDice { get; set; }
-    public Weapon()
-    {
-        IsEquipped = false;
-    }
-}
+// TODO Det är en bra idé med weaponklass, gör det i framtiden
+
+//public class Weapon:LevelElement
+//{
+//    public bool IsEquipped { get; set; }
+//    public Dice AttackDice { get; set; }
+//    public Weapon()
+//    {
+//        IsEquipped = false;
+//    }
+//}

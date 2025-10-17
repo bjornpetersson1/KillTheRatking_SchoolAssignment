@@ -18,7 +18,7 @@ public abstract class GameLoop:LevelElement
         {
             bool isAlive = true;
             int savedXP = -1;
-            int savedHP = -1; //TODO det här måste du lösa, INTE SNYGGT
+            int savedHP = -1;
             ConsoleKeyInfo menuChoice;
             Console.CursorVisible = false;
             string userName = Graphics.WriteStartScreen();
