@@ -17,8 +17,8 @@ public abstract class GameLoop:LevelElement
         while (true)
         {
             bool isAlive = true;
-            int savedXP = 0;
-            int savedHP = 100; //TODO det här måste du lösa, INTE SNYGGT
+            int savedXP = -1;
+            int savedHP = -1; //TODO det här måste du lösa, INTE SNYGGT
             ConsoleKeyInfo menuChoice;
             Console.CursorVisible = false;
             string userName = Graphics.WriteStartScreen();
@@ -28,21 +28,36 @@ public abstract class GameLoop:LevelElement
                 Graphics.WriteLevelSelect(userName);
                 menuChoice = Console.ReadKey(true);
                 LevelChoice(menuChoice);
-                var player = LevelData.Elements.OfType<Player>().FirstOrDefault();
-                var enemys = LevelData.Elements.OfType<Enemy>().ToList();
-                var walls = LevelData.Elements.OfType<Wall>().ToList();
-                player.XP = savedXP;
-                player.HP = savedHP;
+                var player = LevelData.Elements?.OfType<Player>().FirstOrDefault();
+                if (player == null)
+                {
+                    throw new ArgumentNullException("no player found, add a player to the map");
+                }
+                var enemys = LevelData.Elements?.OfType<Enemy>().ToList();
+                if (enemys == null)
+                {
+                    throw new ArgumentNullException("no enemies found, add enemies to the map");
+                }
+                var walls = LevelData.Elements?.OfType<Wall>().ToList();
+                if (walls == null)
+                {
+                    throw new ArgumentNullException("no walls found, add walls to the map");
+                }
+                if (savedHP != -1)
+                {
+                    player.HP = savedHP;
+                    player.XP = savedXP;
+                }
                 player.Name = userName; 
                 Console.Clear();
                 player.PrintUnitInfo();
                 Graphics.WriteInfo();
-                foreach (var wall in walls)
+                foreach (var wall in walls ?? Enumerable.Empty<Wall>())
                 {
                     wall.Update(player);
                     if (wall.IsToBeDrawn()) wall.Draw();
                 }
-                foreach (var element in LevelData.Elements)
+                foreach (var element in LevelData.Elements ?? Enumerable.Empty<LevelElement>())
                 {
                     if (element is Player)
                     {
@@ -56,8 +71,8 @@ public abstract class GameLoop:LevelElement
                 do
                 {
                     Graphics.WriteInfo();
-                    enemys = LevelData.Elements.OfType<Enemy>().ToList();
-                    walls = LevelData.Elements.OfType<Wall>().ToList();
+                    enemys = LevelData.Elements?.OfType<Enemy>().ToList() ?? new List<Enemy>();
+                    walls = LevelData.Elements?.OfType<Wall>().ToList() ?? new List<Wall>();
                     menuChoice = Console.ReadKey(true);
                     if (menuChoice.Key == ConsoleKey.Escape)
                     {
@@ -77,26 +92,25 @@ public abstract class GameLoop:LevelElement
                         enemy.Erase();
                         enemy.Update(player);
                     }
-                    //TODO det här lär att gå att göra till geemensam lista
-                    var deadRats = LevelData.Elements.OfType<Rat>().Where(e => e.HP <= 0).ToList();
+                    var deadRats = LevelData.Elements?.OfType<Rat>().Where(e => e.HP <= 0).ToList() ?? new List<Rat>();
                     foreach (var rat in deadRats)
                     {
                         player.XP += 23;
                     }
-                    var deadSneaks = LevelData.Elements.OfType<Snake>().Where(e => e.HP <= 0).ToList();
+                    var deadSneaks = LevelData.Elements?.OfType<Snake>().Where(e => e.HP <= 0).ToList() ?? new List<Snake>();
                     foreach (var snake in deadSneaks)
                     {
                         player.XP += 57;
                     }
-                    var deadKings = LevelData.Elements.OfType<TheRatKing>().Where(e => e.HP <= 0).ToList();
+                    var deadKings = LevelData.Elements?.OfType<TheRatKing>().Where(e => e.HP <= 0).ToList() ?? new List<TheRatKing>();
                     foreach (var king in deadKings)
                     {
                         player.XP += 132;
                     }
 
-                    LevelData.Elements.RemoveAll(e => e is Enemy enemy && enemy.HP <= 0);
+                    LevelData.Elements?.RemoveAll(e => e is Enemy enemy && enemy.HP <= 0);
 
-                    foreach (var element in LevelData.Elements)
+                    foreach (var element in LevelData.Elements ?? Enumerable.Empty<LevelElement>())
                     {
                         if (element is Player)
                         {

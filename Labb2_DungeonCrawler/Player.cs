@@ -15,7 +15,7 @@ public class Player : LevelElement
     {
         AttackDice = new Dice(6, 2, 2);
         DefenceDice = new Dice(6, 2, 0);
-        HP = 10;
+        HP = 100;
         XP = 0;
         Name = name;
         TurnsPlayed = 0;

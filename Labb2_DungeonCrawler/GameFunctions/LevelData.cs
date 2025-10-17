@@ -8,7 +8,7 @@ namespace Labb2_DungeonCrawler;
 
 public abstract class LevelData : LevelElement
 {
-    public static List<LevelElement> Elements { get; set; }
+    public static List<LevelElement>? Elements { get; set; }
  
 	public static void Load(string fileName)
 	{
