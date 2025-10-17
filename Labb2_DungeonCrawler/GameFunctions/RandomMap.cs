@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler.GameFunctions;
 
+
+//TODO det här behövs refaktoriseras
 public abstract class RandomMap : LevelElement
 {
 
