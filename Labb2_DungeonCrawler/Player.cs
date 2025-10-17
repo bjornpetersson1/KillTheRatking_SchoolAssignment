@@ -25,8 +25,11 @@ public class Player : LevelElement
     }
     public override void PrintUnitInfo()
     {
-        Console.SetCursorPosition(0, 0);
-        Console.Write(new string(' ', Console.WindowWidth));
+        if (TurnsPlayed == 10 || TurnsPlayed == 100 || TurnsPlayed == 1000 || TurnsPlayed == 10000 || TurnsPlayed == 100000)
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.Write(new string(' ', Console.WindowWidth));
+        }
         Console.SetCursorPosition(0, 0);
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine($"|{Symbol}: {Name} | HP: {HP} | XP: {XP}| Attack: {AttackDice} | Defence: {DefenceDice} | Turn: {TurnsPlayed} |");
