@@ -36,8 +36,8 @@ public class Player : LevelElement
         this.PrintUnitInfo();
         this.TurnsPlayed++;
         this.Erase();
-        var lazers = LevelData.Elements.OfType<Lazer>().ToList();
-        LevelData.Elements.RemoveAll(l => l is Lazer);
+        var lazers = (LevelData.Elements ?? Enumerable.Empty<LevelElement>()).OfType<Lazer>().ToList();
+        if (LevelData.Elements != null) LevelData.Elements.RemoveAll(l => l is Lazer);
         foreach (var lazer in lazers)
         {
             lazer.Erase();
@@ -91,7 +91,7 @@ public class Player : LevelElement
                         for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate - i, xCordinate = this.xCordinate };
-                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements?.Add(lazer);
                             else
                             {
                                 lazer.CollideAndConcequences(this);
@@ -103,7 +103,7 @@ public class Player : LevelElement
                         for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate + i, xCordinate = this.xCordinate };
-                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements?.Add(lazer);
                             else
                             {
                                 lazer.CollideAndConcequences(this);
@@ -115,7 +115,7 @@ public class Player : LevelElement
                         for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate - i };
-                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements?.Add(lazer);
                             else
                             {
                                 lazer.CollideAndConcequences(this);
@@ -127,7 +127,7 @@ public class Player : LevelElement
                         for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate + i };
-                            if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
+                            if (lazer.IsSpaceAvailable()) LevelData.Elements?.Add(lazer);
                             else
                             {
                                 lazer.CollideAndConcequences(this);

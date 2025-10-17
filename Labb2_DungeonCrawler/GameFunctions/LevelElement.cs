@@ -9,11 +9,11 @@ public abstract class LevelElement
     public int yCordinate { get; set; }
     public char Symbol { get; set; }
     public ConsoleColor MyColor { get; set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int TurnsPlayed { get; set; }
     public int XP { get; set; }
-    public Dice AttackDice { get; set; }
-    public Dice DefenceDice { get; set; }
+    public Dice? AttackDice { get; set; }
+    public Dice? DefenceDice { get; set; }
     public int HP { get; set; }
 
 
@@ -49,28 +49,32 @@ public abstract class LevelElement
         } while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3 && menuChoice.Key != ConsoleKey.D4);
         Thread.Sleep(500);
         Console.Clear();
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.SetCursorPosition(20, 10);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.SetCursorPosition(23, 10);
         switch(menuChoice.Key)
         {
             case ConsoleKey.D1:
                 Console.WriteLine("loading level 1...");
                 Console.SetCursorPosition(15, 12);
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("move around by using the arrow keys");
                 break;
             case ConsoleKey.D2:
                 Console.WriteLine("loading level 2...");
                 Console.SetCursorPosition(15, 12);
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("did you know that the ratking has 2 tails?");
                 break;
             case ConsoleKey.D3:
                 Console.WriteLine("loading level 3...");
                 Console.SetCursorPosition(15, 12);
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("did you know that you can shoot la[z]er?");
                 break;
             case ConsoleKey.D4:
                 Console.WriteLine("generating level...");
                 Console.SetCursorPosition(15, 12);
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("hopefully there are no holes in the wall and no indestructable rocks in the way");
                 break;
         }
@@ -95,7 +99,9 @@ public abstract class LevelElement
     {
         CoOrdinate targetSpace = new CoOrdinate(this);
 
-        return !LevelData.Elements.Any(k => k != this && k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
+
+        return LevelData.Elements != null &&
+               !LevelData.Elements.Any(k => k != this && k.yCordinate == targetSpace.YCord && k.xCordinate == targetSpace.XCord);
     }
     public void CollideAndConcequences(Player player)
     {
@@ -112,9 +118,11 @@ public abstract class LevelElement
             collider.PrintUnitInfo();
         }
     }
-    public LevelElement GetCollider()
+    public LevelElement? GetCollider()
     {
         CoOrdinate targetSpace = new CoOrdinate(this);
+        if (LevelData.Elements == null)
+            return null;
         return LevelData.Elements.FirstOrDefault(k => k != this && k.xCordinate == targetSpace.XCord && k.yCordinate == targetSpace.YCord);
     }
     public int Attack(LevelElement enemy)
