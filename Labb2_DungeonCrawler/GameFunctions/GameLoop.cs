@@ -18,7 +18,7 @@ public abstract class GameLoop:LevelElement
         {
             bool isAlive = true;
             int savedXP = 0;
-            int savedHP = 100; //TODO det måste du lösa, INTE SNYGGT
+            int savedHP = 100; //TODO det här måste du lösa, INTE SNYGGT
             ConsoleKeyInfo menuChoice;
             Console.CursorVisible = false;
             string userName = Graphics.WriteStartScreen();
@@ -88,7 +88,7 @@ public abstract class GameLoop:LevelElement
                     {
                         player.XP += 57;
                     }
-                    var deadKings = LevelData.Elements.OfType<RatBoss>().Where(e => e.HP <= 0).ToList();
+                    var deadKings = LevelData.Elements.OfType<TheRatKing>().Where(e => e.HP <= 0).ToList();
                     foreach (var king in deadKings)
                     {
                         player.XP += 132;

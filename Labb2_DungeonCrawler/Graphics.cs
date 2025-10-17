@@ -38,9 +38,11 @@ public static class Graphics
         Console.ForegroundColor = ConsoleColor.DarkGray;
         Console.SetCursorPosition(30, 10);
         Console.WriteLine("kill the ratking");
+        int startPositionX = 28;
+        int startPositionY = 10;
         while (!Console.KeyAvailable)
         {
-            if (count % 4 == 0 )
+            if (count % 2 == 0 )
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 for (int i = 2; i < 23; i++)
@@ -56,7 +58,7 @@ public static class Graphics
                     }
                 }
             }
-            else if (count % 7 == 0)
+            else if (count % 3 == 0)
             {
                 for (int i = 2; i < 23; i++)
                 {
@@ -79,12 +81,29 @@ public static class Graphics
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.Write(pressToStart);
             }
-            else if (count % 7 == 0)
+            else if (count % 8 == 0)
             {
                 Console.SetCursorPosition(20, 20);
                 foreach (var item in pressToStart)
                 {
                     Console.Write(' ');
+                }
+            }
+            if (count % 2 == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.SetCursorPosition(startPositionX, startPositionY);
+                Console.Write("░");
+                startPositionX--;
+                if (startPositionX < 10)
+                {
+                    startPositionX = 28;
+                    startPositionY++;
+                }
+                if (startPositionY > 15)
+                {
+                    startPositionX = 28;
+                    startPositionY = 10;
                 }
             }
             count++;

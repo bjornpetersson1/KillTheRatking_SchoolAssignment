@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public class RatBoss : Enemy
+public class TheRatKing : Enemy
 {
 
     private Random random;
     
-    public RatBoss()
+    public TheRatKing()
     {
         random = new Random();
         AttackDice = new Dice(6, 3, 2);
         DefenceDice = new Dice(6, 1, 1);
         HP = 85;
-        Name = "ratKing";
+        Name = "TheRatKing";
         Symbol = 'R';
         MyColor = ConsoleColor.DarkRed;
         
@@ -71,7 +71,7 @@ public class RatBoss : Enemy
             }
             if (TurnsPlayed % 3 == 0 && HP > 0)
             {
-               RatBossTail.AddRatTails(move, yCordinate, xCordinate, player);
+               TheKingsTail.AddRatTails(move, yCordinate, xCordinate, player);
             }
         }
     }

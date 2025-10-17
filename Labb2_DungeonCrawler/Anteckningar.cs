@@ -10,15 +10,16 @@ namespace Labb2_DungeonCrawler;
 
 
 
-//Användarinstruktioner vid start
 
 //Gör en Character-klass för properties som enemy och player har gemensamt
         //Det här ledde till att jag behöver göra en konfliktklass, för trött att fixa det nu gör det sen
 
 //Lös plocka upp och equippa lazern
-    //Eller gör fullösningen att man hittar något och det berättar att man alltid haft lazern
+    //Eller gör fullösningen att man hittar något och det berättar att man alltid haft lazern :)
 
 //DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE//DONE
+
+//Användarinstruktioner vid start
 
 //Skriv ut info om esc ny bana
 

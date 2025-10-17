@@ -11,7 +11,7 @@ public class Lazer : LevelElement
     public Lazer()
     {
         Name = "lazer";
-        Symbol = '~';
+        Symbol = '░';
         MyColor = ConsoleColor.Magenta;
         AttackDice = new Dice(0, 0, 20);
     }

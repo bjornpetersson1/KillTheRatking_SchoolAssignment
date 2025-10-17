@@ -13,15 +13,15 @@ public class Player : LevelElement
     public ConsoleKey LastMove { get; set; }
     public Player(string name = "player")
     {
-        this.AttackDice = new Dice(6, 2, 2);
-        this.DefenceDice = new Dice(6, 2, 0);
-        this.HP = 10;
-        this.XP = 0;
-        this.Name = name;
-        this.TurnsPlayed = 0;
-        this.Symbol = '@';
-        this.MyColor = ConsoleColor.White;
-        this.LastMove = ConsoleKey.RightArrow;
+        AttackDice = new Dice(6, 2, 2);
+        DefenceDice = new Dice(6, 2, 0);
+        HP = 10;
+        XP = 0;
+        Name = name;
+        TurnsPlayed = 0;
+        Symbol = '@';
+        MyColor = ConsoleColor.White;
+        LastMove = ConsoleKey.RightArrow;
     }
     public override void PrintUnitInfo()
     {
@@ -35,7 +35,6 @@ public class Player : LevelElement
     {
         this.PrintUnitInfo();
         this.TurnsPlayed++;
-        //ConsoleKeyInfo userMove = Console.ReadKey(true);
         this.Erase();
         var lazers = LevelData.Elements.OfType<Lazer>().ToList();
         LevelData.Elements.RemoveAll(l => l is Lazer);
@@ -89,7 +88,7 @@ public class Player : LevelElement
                 switch(LastMove)
                 {
                     case ConsoleKey.UpArrow:
-                        for (global::System.Int32 i = 1; i <= 4; i++)
+                        for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate - i, xCordinate = this.xCordinate };
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
@@ -101,7 +100,7 @@ public class Player : LevelElement
                         }
                         break;
                     case ConsoleKey.DownArrow:
-                        for (global::System.Int32 i = 1; i <= 4; i++)
+                        for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate + i, xCordinate = this.xCordinate };
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
@@ -113,7 +112,7 @@ public class Player : LevelElement
                         }
                         break;
                     case ConsoleKey.LeftArrow:
-                        for (global::System.Int32 i = 1; i <= 4; i++)
+                        for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate - i };
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
@@ -125,7 +124,7 @@ public class Player : LevelElement
                         }
                         break;
                     case ConsoleKey.RightArrow:
-                        for (global::System.Int32 i = 1; i <= 4; i++)
+                        for (global::System.Int32 i = 1; i <= 3; i++)
                         {
                             Lazer lazer = new Lazer() { yCordinate = this.yCordinate, xCordinate = this.xCordinate + i };
                             if (lazer.IsSpaceAvailable()) LevelData.Elements.Add(lazer);
@@ -138,7 +137,6 @@ public class Player : LevelElement
                         break;
                 }
                 break;
-
             default:
                 break;
         }

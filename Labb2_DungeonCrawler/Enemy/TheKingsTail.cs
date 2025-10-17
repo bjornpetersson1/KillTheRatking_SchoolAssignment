@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Labb2_DungeonCrawler;
 
-public class RatBossTail : Enemy
+public class TheKingsTail : Enemy
 {
     private int lifeTime = 1;
-    public RatBossTail()
+    private static int tailLength = 3;
+    public TheKingsTail()
     {
         Symbol = '¤';
         MyColor = ConsoleColor.DarkYellow;
-        Name = "theKingsTail";
+        Name = "TheKingsTail";
         AttackDice = new Dice(0, 0, 20);
         DefenceDice = new Dice(20, 20, 20);
         HP = 200;
@@ -33,9 +34,9 @@ public class RatBossTail : Enemy
         switch (random0To3)
         {
             case 0:
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= tailLength; i++)
                 {
-                    RatBossTail tail = new RatBossTail() { yCordinate = y - i, xCordinate = x };
+                    TheKingsTail tail = new TheKingsTail() { yCordinate = y - i, xCordinate = x };
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
@@ -43,9 +44,9 @@ public class RatBossTail : Enemy
                         break;
                     }
                 }
-                for(int i = 1; i <=3; i++)
+                for(int i = 1; i <= tailLength; i++)
                 { 
-                    RatBossTail tail2 = new RatBossTail() { yCordinate = y + i, xCordinate = x };
+                    TheKingsTail tail2 = new TheKingsTail() { yCordinate = y + i, xCordinate = x };
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
@@ -55,9 +56,9 @@ public class RatBossTail : Enemy
                 }
                 break;
             case 1:
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= tailLength; i++)
                 {
-                    RatBossTail tail = new RatBossTail() { yCordinate = y + i, xCordinate = x };
+                    TheKingsTail tail = new TheKingsTail() { yCordinate = y + i, xCordinate = x };
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
@@ -65,9 +66,9 @@ public class RatBossTail : Enemy
                         break;
                     }
                 }
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= tailLength; i++)
                 {
-                    RatBossTail tail2 = new RatBossTail() { yCordinate = y, xCordinate = x - i };
+                    TheKingsTail tail2 = new TheKingsTail() { yCordinate = y, xCordinate = x - i };
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
@@ -77,9 +78,9 @@ public class RatBossTail : Enemy
                 }
                 break;
             case 2:
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= tailLength; i++)
                 {
-                    RatBossTail tail = new RatBossTail() { yCordinate = y, xCordinate = x - i };
+                    TheKingsTail tail = new TheKingsTail() { yCordinate = y, xCordinate = x - i };
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
@@ -87,9 +88,9 @@ public class RatBossTail : Enemy
                         break;
                     }
                 }
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= tailLength; i++)
                 {
-                    RatBossTail tail2 = new RatBossTail() { yCordinate = y, xCordinate = x + i };
+                    TheKingsTail tail2 = new TheKingsTail() { yCordinate = y, xCordinate = x + i };
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
@@ -99,9 +100,9 @@ public class RatBossTail : Enemy
                 }
                 break;
             case 3:
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= tailLength; i++)
                 {
-                    RatBossTail tail = new RatBossTail() { yCordinate = y, xCordinate = x + i };
+                    TheKingsTail tail = new TheKingsTail() { yCordinate = y, xCordinate = x + i };
                     if (tail.IsSpaceAvailable()) LevelData.Elements.Add(tail);
                     else
                     {
@@ -109,9 +110,9 @@ public class RatBossTail : Enemy
                         break;
                     }
                 }
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= tailLength; i++)
                 {
-                    RatBossTail tail2 = new RatBossTail() { yCordinate = y - i, xCordinate = x };
+                    TheKingsTail tail2 = new TheKingsTail() { yCordinate = y - i, xCordinate = x };
                     if (tail2.IsSpaceAvailable()) LevelData.Elements.Add(tail2);
                     else
                     {
@@ -122,5 +123,4 @@ public class RatBossTail : Enemy
                 break;
         }
     }
-
 }

@@ -56,7 +56,7 @@ public abstract class LevelElement
             case ConsoleKey.D1:
                 Console.WriteLine("loading level 1...");
                 Console.SetCursorPosition(15, 12);
-                Console.WriteLine("move around by using arrow keys");
+                Console.WriteLine("move around by using the arrow keys");
                 break;
             case ConsoleKey.D2:
                 Console.WriteLine("loading level 2...");
@@ -141,7 +141,7 @@ public abstract class LevelElement
     }
     public void PrintFightresult(int fightreturn, LevelElement enemy, Player player)
     {
-        if (enemy is RatBossTail)
+        if (enemy is TheKingsTail)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{player.Name} attacked the Kings tail and it had no effect. You can't damage the tail");
