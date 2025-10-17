@@ -7,38 +7,74 @@ public abstract class LevelElement
 {
     public int xCordinate { get; set; }
     public int yCordinate { get; set; }
-    public virtual char Symbol { get; set; }
-    public virtual ConsoleColor MyColor { get; set; }
-    public virtual string Name { get; set; }
+    public char Symbol { get; set; }
+    public ConsoleColor MyColor { get; set; }
+    public string Name { get; set; }
     public int TurnsPlayed { get; set; }
     public int XP { get; set; }
-    public virtual Dice AttackDice { get; set; }
-    public virtual Dice DefenceDice { get; set; }
-    public virtual int HP { get; set; }
+    public Dice AttackDice { get; set; }
+    public Dice DefenceDice { get; set; }
+    public int HP { get; set; }
 
 
     public virtual void PrintUnitInfo() { }
     public static void LevelChoice(ConsoleKeyInfo menuChoice)
     {
+        Console.ForegroundColor = ConsoleColor.Green;
         do
         {
             switch (menuChoice.Key)
             {
                 case ConsoleKey.D1:
+                    Console.SetCursorPosition(15, 16);
+                    Console.Write("press [1] to play level 1");
                     LevelData.Load("ProjectFiles\\Level1.txt");
                     break;
                 case ConsoleKey.D2:
+                    Console.SetCursorPosition(15, 17);
+                    Console.Write("press [2] to play level 2");
                     LevelData.Load("ProjectFiles\\Level2.txt");
                     break;
                 case ConsoleKey.D3:
+                    Console.SetCursorPosition(15, 18);
+                    Console.Write("press [3] to play level 3");
                     LevelData.Load("ProjectFiles\\Level3.txt");
                     break;
                 case ConsoleKey.D4:
-
+                    Console.SetCursorPosition(15, 19);
+                    Console.Write("press [4] to generate a random level (works most of the time)");
                     LevelData.Load(RandomMap.GenerateMap());
                     break;
             }
         } while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3 && menuChoice.Key != ConsoleKey.D4);
+        Thread.Sleep(500);
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.SetCursorPosition(20, 10);
+        switch(menuChoice.Key)
+        {
+            case ConsoleKey.D1:
+                Console.WriteLine("loading level 1...");
+                Console.SetCursorPosition(15, 12);
+                Console.WriteLine("move around by using arrow keys");
+                break;
+            case ConsoleKey.D2:
+                Console.WriteLine("loading level 2...");
+                Console.SetCursorPosition(15, 12);
+                Console.WriteLine("did you know that the ratking has 2 tails?");
+                break;
+            case ConsoleKey.D3:
+                Console.WriteLine("loading level 3...");
+                Console.SetCursorPosition(15, 12);
+                Console.WriteLine("did you know that you can shoot la[z]er?");
+                break;
+            case ConsoleKey.D4:
+                Console.WriteLine("generating level...");
+                Console.SetCursorPosition(15, 12);
+                Console.WriteLine("hopefully there are no holes in the wall and no indestructable rocks in the way");
+                break;
+        }
+        Thread.Sleep(4000);
     }
     public void Draw()
     {
