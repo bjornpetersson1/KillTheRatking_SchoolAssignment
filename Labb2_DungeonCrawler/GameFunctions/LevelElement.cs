@@ -42,7 +42,7 @@ public abstract class LevelElement
                     break;
                 case ConsoleKey.D4:
                     Console.SetCursorPosition(15, 19);
-                    Console.Write("press [4] to generate a random level (works most of the time)");
+                    Console.Write("press [4] to generate a random level");
                     LevelData.Load(RandomMap.GenerateMap());
                     break;
             }
@@ -75,7 +75,9 @@ public abstract class LevelElement
                 Console.WriteLine("generating level...");
                 Console.SetCursorPosition(15, 12);
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("hopefully there are no holes in the wall and no indestructable rocks in the way");
+                Console.Write("hopefully there are no holes in the wall and");
+                Console.SetCursorPosition(18, 13);
+                Console.Write("no indestructable rocks in the way");
                 break;
         }
         Thread.Sleep(4000);

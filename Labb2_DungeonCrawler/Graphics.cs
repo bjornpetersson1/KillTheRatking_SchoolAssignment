@@ -156,7 +156,7 @@ public static class Graphics
         string levelSelect1 = "press [1] to play level 1";
         string levelSelect2 = "press [2] to play level 2";
         string levelSelect3 = "press [3] to play level 3";
-        string levelSelect4 = "press [4] to generate a random level (works most of the time)";
+        string levelSelect4 = "press [4] to generate a random level";
         string gameStart1 = $"Alright {userName}...";
         Console.SetCursorPosition(15, 14);
         Console.ForegroundColor = ConsoleColor.Green;
