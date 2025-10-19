@@ -18,40 +18,47 @@ public abstract class LevelElement
 
 
     public virtual void PrintUnitInfo() { }
-    public static void LevelChoice(ConsoleKeyInfo menuChoice)
+    public static void LevelChoice()
     {
+        ConsoleKeyInfo userChoice;
+        bool validChoiceFlag = false;
         Console.ForegroundColor = ConsoleColor.Green;
         do
         {
-            switch (menuChoice.Key)
+            userChoice = Console.ReadKey(true);
+            switch (userChoice.Key)
             {
                 case ConsoleKey.D1:
                     Console.SetCursorPosition(15, 16);
                     Console.Write("press [1] to play level 1");
                     LevelData.Load("ProjectFiles\\Level1.txt");
+                    validChoiceFlag = true;
                     break;
                 case ConsoleKey.D2:
                     Console.SetCursorPosition(15, 17);
                     Console.Write("press [2] to play level 2");
                     LevelData.Load("ProjectFiles\\Level2.txt");
+                    validChoiceFlag = true;
                     break;
                 case ConsoleKey.D3:
                     Console.SetCursorPosition(15, 18);
                     Console.Write("press [3] to play level 3");
                     LevelData.Load("ProjectFiles\\Level3.txt");
+                    validChoiceFlag = true;
                     break;
                 case ConsoleKey.D4:
                     Console.SetCursorPosition(15, 19);
                     Console.Write("press [4] to generate a random level");
                     LevelData.Load(RandomMap.GenerateMap());
+                    validChoiceFlag = true;
                     break;
             }
-        } while (menuChoice.Key != ConsoleKey.D1 && menuChoice.Key != ConsoleKey.D2 && menuChoice.Key != ConsoleKey.D3 && menuChoice.Key != ConsoleKey.D4);
+        } while (!validChoiceFlag);
         Thread.Sleep(500);
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.Green;
         Console.SetCursorPosition(23, 10);
-        switch(menuChoice.Key)
+        switch(userChoice.Key)
         {
             case ConsoleKey.D1:
                 Console.WriteLine("loading level 1...");

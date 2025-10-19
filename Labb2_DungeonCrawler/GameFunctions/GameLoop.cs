@@ -26,8 +26,7 @@ public abstract class GameLoop:LevelElement
             {
                 LevelData.Elements?.Clear();
                 Graphics.WriteLevelSelect(userName);
-                menuChoice = Console.ReadKey(true);
-                LevelChoice(menuChoice);
+                LevelChoice();
                 var player = LevelData.Elements?.OfType<Player>().FirstOrDefault();
                 if (player == null)
                 {
