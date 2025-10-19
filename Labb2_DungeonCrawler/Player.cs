@@ -11,7 +11,7 @@ namespace Labb2_DungeonCrawler;
 public class Player : LevelElement
 {
     public ConsoleKey LastMove { get; set; }
-    private Dictionary<ConsoleKey, int> playerDirection;
+    public Dictionary<ConsoleKey, int> playerDirection;
     public Player(string name = "player")
     {
         AttackDice = new Dice(6, 2, 2);
@@ -101,13 +101,7 @@ public class Player : LevelElement
         {
             lazer.Erase();
         }
-        if (userMove.Key == ConsoleKey.Z)
-        {
-            LazerShootMethod(LastMove, 3);
-        }
-        else
-        {
-            PlayerMoveMethod(userMove);
-        }
+        if (userMove.Key == ConsoleKey.Z) LazerShootMethod(LastMove, 3);
+        else PlayerMoveMethod(userMove);
     }
 }

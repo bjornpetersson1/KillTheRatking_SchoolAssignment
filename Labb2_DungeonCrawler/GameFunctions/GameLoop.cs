@@ -72,7 +72,7 @@ public abstract class GameLoop:LevelElement
                     Graphics.WriteInfo();
                     enemys = LevelData.Elements?.OfType<Enemy>().ToList() ?? new List<Enemy>();
                     walls = LevelData.Elements?.OfType<Wall>().ToList() ?? new List<Wall>();
-                    menuChoice = Console.ReadKey(true);
+                    menuChoice = Console.ReadKey(true);                                       
                     if (menuChoice.Key == ConsoleKey.Escape)
                     {
                         Console.Clear();
@@ -80,7 +80,7 @@ public abstract class GameLoop:LevelElement
                         savedHP = player.HP;
                         break;
                     }
-                    player.Update(menuChoice);
+                    if(player.playerDirection.ContainsKey(menuChoice.Key) || menuChoice.Key == ConsoleKey.Z) player.Update(menuChoice);
                     foreach (var wall in walls)
                     {
                         wall.Update(player);
