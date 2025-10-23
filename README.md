@@ -10,3 +10,10 @@ The game should have a couple of enemies with specific moving-patterns.
   - Rat - moves randomly one step in any direction
 <img width="1519" height="849" alt="ExploreSnakeCave" src="https://github.com/user-attachments/assets/eac8fd6f-4dbc-4bca-9687-c17766dde7df" />
 
+Your vision should be at a set distance and walls stay visable after discovered.   
+  
+  
+Both player and enemies can attack and the attacked unit should also preform a counterattack.  
+  
+  
+
