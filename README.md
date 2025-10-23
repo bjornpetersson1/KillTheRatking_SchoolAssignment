@@ -16,4 +16,17 @@ Your vision should be at a set distance and walls stay visable after discovered.
 Both player and enemies can attack and the attacked unit should also preform a counterattack.  
   
   
+  
+  
+  
+## Extra features  
+  
+- Added the weapon "lazer"  
+- Added the enemy "RatKing" with the specialattack "TheKingsTail"  
+- Added a map generator 
+- Added a scoringsystem
+- Added music  
+- Added titlescreen, menu and endscreen  
+  
+  
 
