@@ -1,22 +1,21 @@
 ## The Task  
-Create a turnbased dungeon crawler game for Console.
-<img width="864" height="710" alt="StartScreen" src="https://github.com/user-attachments/assets/1ab16be6-7a59-4315-beea-0eb02de751e1" />
-
-The program should be able load in the map by reading it of a .txt-file
-<img width="895" height="690" alt="Meny" src="https://github.com/user-attachments/assets/37e1ee06-ca7a-4ae8-951d-4fccfcc50712" />
-
+Create a turnbased dungeon crawler game for Console.  
+<img width="40%" height="40%" alt="StartScreen" src="https://github.com/user-attachments/assets/1ab16be6-7a59-4315-beea-0eb02de751e1" />
+  
+The program should be able load in the map by reading it of a .txt-file  
+<img width="40%" height="40%" alt="Meny" src="https://github.com/user-attachments/assets/37e1ee06-ca7a-4ae8-951d-4fccfcc50712" />
+  
 The game should have a couple of enemies with specific moving-patterns.  
   - Snake - runs away from you when you get close  
-  - Rat - moves randomly one step in any direction
-<img width="1519" height="849" alt="ExploreSnakeCave" src="https://github.com/user-attachments/assets/eac8fd6f-4dbc-4bca-9687-c17766dde7df" />
-
-Your vision should be at a set distance and walls stay visable after discovered.   
+  - Rat - moves randomly one step in any direction  
+<img width="40%" height="40%" alt="RatFight" src="https://github.com/user-attachments/assets/7b9278ea-937a-4389-a92e-5d511485056c" />  
   
+Your vision should be at a set distance and walls stay visable after discovered.  
+<img width="40%" height="40%" alt="ExploreSnakeCave" src="https://github.com/user-attachments/assets/eac8fd6f-4dbc-4bca-9687-c17766dde7df" />
   
 Both player and enemies can attack and the attacked unit should also preform a counterattack.  
-  
-  
-  
+<img width="40%" height="40%" alt="KingsTailAttack" src="https://github.com/user-attachments/assets/d9b123c1-6b7f-46c8-bdd3-d35722f10f87" />
+
   
   
 ## Extra features  
