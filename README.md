@@ -1,5 +1,5 @@
 ## The Result  
-Watch the videos:  
+Videos of gameplay:  
 Part 1: https://github.com/user-attachments/assets/0e023ba6-2bee-4e08-919d-cd4184f6b1e0  
 Part 2: https://github.com/user-attachments/assets/5aa68907-2d71-40cc-bd04-8e39cd4c4994   
 
