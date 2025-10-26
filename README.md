@@ -19,7 +19,7 @@ Your vision should be at a set distance and walls stay visable after discovered.
 <img width="50%" height="50%" alt="ExploreSnakeCave" src="https://github.com/user-attachments/assets/eac8fd6f-4dbc-4bca-9687-c17766dde7df" />
   
 Both player and enemies can attack and the attacked unit should also preform a counterattack.  
-The attack and defence are calculated by dice throws.
+The attack and defence are calculated by dice throws.  
 <img width="50%" height="50%" alt="KingsTailAttack" src="https://github.com/user-attachments/assets/d9b123c1-6b7f-46c8-bdd3-d35722f10f87" />
 
   
